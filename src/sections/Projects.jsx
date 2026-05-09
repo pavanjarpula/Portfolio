@@ -163,7 +163,7 @@ export default function Projects() {
   const row2 = [projects[2], projects[3], projects[0], projects[1]];
 
   return (
-    <section id="projects" ref={sectionRef} style={{ padding: '120px 0', position: 'relative' }}>
+    <section id="projects" ref={sectionRef} style={{ padding: '80px 0', position: 'relative' }}>
       <div style={{ position: 'absolute', right: '-300px', bottom: '0', width: '800px', height: '800px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(255,107,53,0.04) 0%, transparent 70%)', pointerEvents: 'none' }} />
 
       {/* Header */}

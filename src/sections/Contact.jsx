@@ -70,7 +70,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" style={{ padding: '140px 0 80px', position: 'relative', overflow: 'hidden' }}>
+    <section id="contact" style={{ padding: '80px 0 40px', position: 'relative', overflow: 'hidden' }}>
       <div className="container">
         <motion.div
           ref={ref}

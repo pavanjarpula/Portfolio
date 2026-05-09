@@ -21,7 +21,7 @@ export default function About() {
   const inView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section id="about" style={{ padding: '140px 0 80px', position: 'relative', overflow: 'hidden' }}>
+    <section id="about" style={{ padding: '80px 0 40px', position: 'relative', overflow: 'hidden' }}>
       <div style={{
         position: 'absolute', left: '-200px', top: '50%', transform: 'translateY(-50%)',
         width: '500px', height: '500px', borderRadius: '50%',

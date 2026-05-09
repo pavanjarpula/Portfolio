@@ -273,7 +273,7 @@ export default function Skills() {
   const inView = useInView(ref, { once: true, margin: '-80px' });
 
   return (
-    <section id="skills" style={{ padding: '140px 0', position: 'relative', overflow: 'hidden' }}>
+    <section id="skills" style={{ padding: '80px 0', position: 'relative', overflow: 'hidden' }}>
       <div className="container">
         <motion.div
           ref={ref}
