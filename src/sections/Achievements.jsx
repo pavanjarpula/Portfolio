@@ -45,14 +45,25 @@ const certifications = [
     description: '16-week intensive training in DSA — Graphs, Dynamic Programming, Binary Search, and Recursion.',
     color: '#7b68ee',
     badge: 'DSA',
+    link: 'https://drive.google.com/file/d/1ioTtL4Tg0XxfLuMDh3HO49AYsxDEKZKF/view?usp=drive_link',
   },
   {
-    title: 'Machine Learning',
+    title: 'Machine Learning Specialization',
     issuer: 'Coursera / Andrew Ng',
     period: 'Dec 2023 – Feb 2024',
     description: 'Mastered regression, neural networks, and clustering through projects and case studies.',
     color: '#00d4ff',
     badge: 'ML',
+    link: 'https://drive.google.com/file/d/1pjP2JvPkB2HZ8e1R_52F49wb_3pSiTVH/view?usp=drive_link',
+  },
+  {
+    title: 'The Complete Python Developer',
+    issuer: 'Udemy / Andrei Neagoie',
+    period: 'Feb 2025',
+    description: 'Completed 31 hours of comprehensive Python training covering advanced concepts, OOP, and real-world projects.',
+    color: '#ffa116',
+    badge: 'PY',
+    link: 'https://drive.google.com/file/d/1LVkXNCiGSh5aEaJutNu_ht8_BsEUPtI_/view?usp=drive_link',
   },
 ];
 
@@ -62,7 +73,6 @@ const education = [
     institution: 'IIT Kharagpur',
     period: 'Nov 2022 – May 2027',
     grade: 'CGPA: 8.23',
-    location: 'Kharagpur, West Bengal',
     current: true,
   },
   {
@@ -70,7 +80,6 @@ const education = [
     institution: 'Narayana Junior College',
     period: 'Aug 2020 – May 2022',
     grade: '98.6%',
-    location: 'Hyderabad, Telangana',
     current: false,
   },
   {
@@ -78,7 +87,6 @@ const education = [
     institution: 'TS Model School',
     period: 'Jul 2019 – May 2020',
     grade: 'CGPA: 10 / 10',
-    location: 'Chilukodu, Telangana',
     current: false,
   },
 ];
@@ -88,8 +96,7 @@ export default function Achievements() {
   const inView = useInView(ref, { once: true, margin: '-80px' });
 
   return (
-    <section id="achievements" style={{ padding: '140px 0', position: 'relative', overflow: 'hidden' }}>
-      {/* BG glow */}
+    <section id="achievements" style={{ padding: '120px 0', position: 'relative', overflow: 'hidden' }}>
       <div style={{
         position: 'absolute', left: '50%', top: '30%',
         width: '800px', height: '400px',
@@ -105,20 +112,21 @@ export default function Achievements() {
           initial={{ opacity: 0, y: 40 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          style={{ marginBottom: '80px' }}
+          style={{ marginBottom: '64px' }}
         >
           <div className="section-label">Recognition</div>
           <h2 className="section-title">
-            Achievements &<br />
+            Achievements,
+            <br />
             <span style={{
               background: 'linear-gradient(135deg, var(--gold), #f5e6c8)',
               WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text',
-            }}>Education</span>
+            }}>Certs & Education</span>
           </h2>
         </motion.div>
 
         {/* Competitive programming cards */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '20px', marginBottom: '80px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '20px', marginBottom: '64px' }}>
           {achievements.map((a, i) => (
             <motion.a
               key={i}
@@ -131,7 +139,7 @@ export default function Achievements() {
               whileHover={{ scale: 1.02, y: -4 }}
               style={{
                 textDecoration: 'none',
-                padding: '36px',
+                padding: '32px',
                 background: 'var(--surface)',
                 border: '1px solid var(--border)',
                 borderRadius: '8px',
@@ -148,51 +156,49 @@ export default function Achievements() {
               }} />
               <div style={{
                 position: 'absolute', bottom: '-30px', right: '-20px',
-                fontSize: '100px', opacity: 0.04, userSelect: 'none',
+                fontSize: '90px', opacity: 0.04, userSelect: 'none', pointerEvents: 'none',
               }}>{a.icon}</div>
 
               <div style={{
-                display: 'inline-block', padding: '4px 10px',
+                display: 'inline-block', padding: '3px 10px',
                 background: a.color + '15',
                 border: `1px solid ${a.color}30`,
                 borderRadius: '3px',
                 fontSize: '10px', fontWeight: 700,
                 color: a.color, letterSpacing: '0.1em',
-                textTransform: 'uppercase', marginBottom: '20px',
-              }}>
-                {a.tag}
-              </div>
+                textTransform: 'uppercase', marginBottom: '16px',
+              }}>{a.tag}</div>
 
               <div style={{
                 fontFamily: 'var(--font-display)',
-                fontSize: 'clamp(40px, 4vw, 56px)',
+                fontSize: 'clamp(36px, 3.5vw, 52px)',
                 fontWeight: 800, lineHeight: 1,
                 color: a.color, marginBottom: '4px',
                 letterSpacing: '-0.03em',
-              }}>
-                {a.stat}
-              </div>
-              <div style={{ fontSize: '12px', color: 'var(--text-muted)', letterSpacing: '0.05em', marginBottom: '16px' }}>
+              }}>{a.stat}</div>
+              <div style={{ fontSize: '12px', color: 'var(--text-muted)', letterSpacing: '0.05em', marginBottom: '14px' }}>
                 {a.label} · {a.platform}
               </div>
               <p style={{ fontSize: '13px', lineHeight: 1.7, color: 'var(--text-muted)' }}>
                 {a.description}
               </p>
               <div style={{
-                marginTop: '16px',
-                fontFamily: 'var(--font-mono)', fontSize: '11px',
-                color: a.color + '80', letterSpacing: '0.05em',
-              }}>
-                @{a.handle}
-              </div>
+                marginTop: '14px', fontFamily: 'var(--font-mono)',
+                fontSize: '11px', color: a.color + '80', letterSpacing: '0.05em',
+              }}>@{a.handle}</div>
             </motion.a>
           ))}
         </div>
 
-        {/* Two column: Certifications + Education */}
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '40px' }}>
+        {/* Certifications + Education — equal height columns */}
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: '1fr 1fr',
+          gap: '40px',
+          alignItems: 'start',
+        }}>
 
-          {/* Certifications */}
+          {/* LEFT: Certifications */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
@@ -201,51 +207,67 @@ export default function Achievements() {
             <div style={{
               fontFamily: 'var(--font-mono)', fontSize: '11px',
               letterSpacing: '0.2em', textTransform: 'uppercase',
-              color: 'var(--text-muted)', marginBottom: '24px',
+              color: 'var(--text-muted)', marginBottom: '20px',
               display: 'flex', alignItems: 'center', gap: '8px',
             }}>
-              <span style={{ width: '20px', height: '1px', background: 'var(--text-subtle)' }} />
+              <span style={{ width: '20px', height: '1px', background: 'var(--text-subtle)', display: 'inline-block' }} />
               Certifications
             </div>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
               {certifications.map((cert, i) => (
-                <div key={i} style={{
-                  padding: '28px', background: 'var(--surface)',
-                  border: '1px solid var(--border)', borderRadius: '6px',
-                  borderLeft: `3px solid ${cert.color}`,
-                  transition: 'border-color 0.3s',
-                }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '12px' }}>
+                <a
+                  key={i}
+                  href={cert.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-hover
+                  style={{
+                    textDecoration: 'none',
+                    padding: '22px 24px',
+                    background: 'var(--surface)',
+                    border: '1px solid var(--border)',
+                    borderRadius: '6px',
+                    borderLeft: `3px solid ${cert.color}`,
+                    transition: 'border-color 0.3s, background 0.3s',
+                    display: 'block',
+                  }}
+                  onMouseEnter={e => { e.currentTarget.style.background = cert.color + '08'; e.currentTarget.style.borderColor = cert.color + '60'; e.currentTarget.style.borderLeftColor = cert.color; }}
+                  onMouseLeave={e => { e.currentTarget.style.background = 'var(--surface)'; e.currentTarget.style.borderColor = 'var(--border)'; e.currentTarget.style.borderLeftColor = cert.color; }}
+                >
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '10px' }}>
                     <div style={{
-                      width: '36px', height: '36px',
+                      width: '32px', height: '32px',
                       background: cert.color + '15',
                       border: `1px solid ${cert.color}30`,
                       borderRadius: '6px',
                       display: 'flex', alignItems: 'center', justifyContent: 'center',
-                      fontSize: '11px', fontWeight: 700,
+                      fontSize: '9px', fontWeight: 700,
                       color: cert.color, fontFamily: 'var(--font-mono)',
-                    }}>
-                      {cert.badge}
-                    </div>
-                    <div style={{ fontSize: '11px', color: 'var(--text-subtle)', fontFamily: 'var(--font-mono)' }}>
-                      {cert.period}
+                    }}>{cert.badge}</div>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                      <div style={{ fontSize: '11px', color: 'var(--text-subtle)', fontFamily: 'var(--font-mono)' }}>
+                        {cert.period}
+                      </div>
+                      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke={cert.color} strokeWidth="2" opacity="0.7">
+                        <path d="M7 17L17 7M7 7h10v10"/>
+                      </svg>
                     </div>
                   </div>
-                  <h4 style={{ fontSize: '15px', fontWeight: 700, color: 'var(--text)', marginBottom: '4px', lineHeight: 1.3 }}>
+                  <h4 style={{ fontSize: '14px', fontWeight: 700, color: 'var(--text)', marginBottom: '3px', lineHeight: 1.3 }}>
                     {cert.title}
                   </h4>
-                  <div style={{ fontSize: '12px', color: cert.color, marginBottom: '10px', fontWeight: 500 }}>
+                  <div style={{ fontSize: '12px', color: cert.color, marginBottom: '7px', fontWeight: 500 }}>
                     {cert.issuer}
                   </div>
-                  <p style={{ fontSize: '13px', color: 'var(--text-muted)', lineHeight: 1.6 }}>
+                  <p style={{ fontSize: '12px', color: 'var(--text-muted)', lineHeight: 1.6, margin: 0 }}>
                     {cert.description}
                   </p>
-                </div>
+                </a>
               ))}
             </div>
           </motion.div>
 
-          {/* Education Timeline */}
+          {/* RIGHT: Education timeline — stretches to match certs height */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
@@ -254,45 +276,43 @@ export default function Achievements() {
             <div style={{
               fontFamily: 'var(--font-mono)', fontSize: '11px',
               letterSpacing: '0.2em', textTransform: 'uppercase',
-              color: 'var(--text-muted)', marginBottom: '24px',
+              color: 'var(--text-muted)', marginBottom: '20px',
               display: 'flex', alignItems: 'center', gap: '8px',
             }}>
-              <span style={{ width: '20px', height: '1px', background: 'var(--text-subtle)' }} />
+              <span style={{ width: '20px', height: '1px', background: 'var(--text-subtle)', display: 'inline-block' }} />
               Education
             </div>
 
             <div style={{ position: 'relative' }}>
-              {/* Timeline line */}
+              {/* Vertical timeline line */}
               <div style={{
-                position: 'absolute', left: '20px', top: '28px', bottom: '28px',
-                width: '1px', background: 'linear-gradient(to bottom, var(--accent), var(--border))',
+                position: 'absolute', left: '19px', top: '24px', bottom: '24px',
+                width: '1px', background: 'linear-gradient(to bottom, var(--accent) 0%, var(--border) 60%, transparent 100%)',
               }} />
 
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '0' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
                 {education.map((edu, i) => (
-                  <div key={i} style={{
-                    display: 'flex', gap: '24px', marginBottom: i < education.length - 1 ? '28px' : 0,
-                  }}>
-                    {/* Dot */}
+                  <div key={i} style={{ display: 'flex', gap: '20px' }}>
+                    {/* Timeline dot */}
                     <div style={{
-                      width: '40px', flexShrink: 0,
+                      width: '38px', flexShrink: 0,
                       display: 'flex', alignItems: 'flex-start',
-                      justifyContent: 'center', paddingTop: '24px',
+                      justifyContent: 'center', paddingTop: '22px',
                     }}>
                       <div style={{
                         width: '10px', height: '10px', borderRadius: '50%',
-                        background: edu.current ? 'var(--accent)' : 'var(--surface2)',
+                        background: edu.current ? 'var(--accent)' : 'var(--bg)',
                         border: edu.current ? '2px solid var(--accent)' : '2px solid var(--text-subtle)',
                         boxShadow: edu.current ? '0 0 12px var(--glow)' : 'none',
                         flexShrink: 0,
                       }} />
                     </div>
 
-                    {/* Content */}
                     <div style={{
-                      flex: 1, padding: '20px 24px',
-                      background: edu.current ? 'rgba(123,104,238,0.06)' : 'var(--surface)',
-                      border: `1px solid ${edu.current ? 'rgba(123,104,238,0.25)' : 'var(--border)'}`,
+                      flex: 1,
+                      padding: '18px 22px',
+                      background: edu.current ? 'rgba(212,175,55,0.05)' : 'var(--surface)',
+                      border: `1px solid ${edu.current ? 'rgba(212,175,55,0.2)' : 'var(--border)'}`,
                       borderRadius: '6px',
                     }}>
                       {edu.current && (
@@ -303,19 +323,19 @@ export default function Achievements() {
                           borderRadius: '100px', marginBottom: '10px',
                           fontSize: '10px', color: '#00ff88', letterSpacing: '0.06em',
                         }}>
-                          <span style={{ width: '5px', height: '5px', borderRadius: '50%', background: '#00ff88' }} />
+                          <span style={{ width: '5px', height: '5px', borderRadius: '50%', background: '#00ff88', display: 'inline-block' }} />
                           Currently Enrolled
                         </div>
                       )}
-                      <h4 style={{ fontSize: '15px', fontWeight: 700, color: 'var(--text)', lineHeight: 1.3, marginBottom: '4px' }}>
+                      <h4 style={{ fontSize: '14px', fontWeight: 700, color: 'var(--text)', lineHeight: 1.3, marginBottom: '4px' }}>
                         {edu.degree}
                       </h4>
-                      <div style={{ fontSize: '13px', color: 'var(--accent)', fontWeight: 500, marginBottom: '4px' }}>
+                      <div style={{ fontSize: '13px', color: 'var(--accent)', fontWeight: 500, marginBottom: '6px' }}>
                         {edu.institution}
                       </div>
-                      <div style={{ display: 'flex', gap: '12px', fontSize: '11px', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>
+                      <div style={{ display: 'flex', gap: '10px', fontSize: '11px', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', flexWrap: 'wrap', alignItems: 'center' }}>
                         <span>{edu.period}</span>
-                        <span>·</span>
+                        <span style={{ color: 'var(--text-subtle)' }}>·</span>
                         <span style={{ color: 'var(--gold)' }}>{edu.grade}</span>
                       </div>
                     </div>

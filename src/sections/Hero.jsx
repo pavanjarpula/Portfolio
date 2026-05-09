@@ -70,7 +70,7 @@ export default function Hero() {
               marginBottom: '32px',
               color: 'var(--text-muted)'
             }}>
-              & Full Stack Engineer
+              & AI / Data Engineer
             </motion.div>
 
             <motion.p variants={item} style={{
@@ -97,16 +97,18 @@ export default function Hero() {
                   letterSpacing: '0.06em', textTransform: 'uppercase',
                   cursor: 'none',
                   transition: 'all 0.3s',
+                  display: 'inline-flex', alignItems: 'center', gap: '8px',
                 }}
-                onMouseEnter={e => e.currentTarget.style.transform = 'translateY(-2px)'}
-                onMouseLeave={e => e.currentTarget.style.transform = 'translateY(0)'}
+                onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.background = 'var(--accent)'; }}
+                onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.background = 'var(--text)'; }}
               >
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                 Selected Work
               </button>
 
-              <a
-                href="mailto:mepavaniitkgp@gmail.com"
+              <button
                 data-hover
+                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
                 style={{
                   padding: '16px 40px',
                   background: 'transparent',
@@ -116,18 +118,19 @@ export default function Hero() {
                   fontFamily: 'var(--font-body)',
                   fontSize: '13px', fontWeight: 500,
                   letterSpacing: '0.06em', textTransform: 'uppercase',
-                  textDecoration: 'none',
+                  cursor: 'none',
                   transition: 'all 0.3s',
+                  display: 'inline-flex', alignItems: 'center', gap: '8px',
                 }}
-                onMouseEnter={e => { e.currentTarget.style.borderColor = 'var(--text)'; }}
-                onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--border-hover)'; }}
+                onMouseEnter={e => { e.currentTarget.style.borderColor = 'var(--text)'; e.currentTarget.style.background = 'rgba(255,255,255,0.04)'; }}
+                onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--border-hover)'; e.currentTarget.style.background = 'transparent'; }}
               >
                 Get in Touch
-              </a>
+              </button>
             </motion.div>
           </motion.div>
 
-          {/* Photo content */}
+          {/* Photo with animation */}
           <motion.div 
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -140,13 +143,81 @@ export default function Hero() {
               aspectRatio: '4/5',
               position: 'relative',
             }}>
+              {/* Animated corner decorations */}
+              <motion.div
+                animate={{ opacity: [0.3, 0.8, 0.3] }}
+                transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
+                style={{
+                  position: 'absolute', top: '-8px', left: '-8px',
+                  width: '40px', height: '40px',
+                  borderTop: '2px solid var(--accent)',
+                  borderLeft: '2px solid var(--accent)',
+                  zIndex: 3,
+                }}
+              />
+              <motion.div
+                animate={{ opacity: [0.3, 0.8, 0.3] }}
+                transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut', delay: 1.5 }}
+                style={{
+                  position: 'absolute', bottom: '-8px', right: '-8px',
+                  width: '40px', height: '40px',
+                  borderBottom: '2px solid var(--accent)',
+                  borderRight: '2px solid var(--accent)',
+                  zIndex: 3,
+                }}
+              />
+
+              {/* Floating particles */}
+              {[...Array(5)].map((_, i) => (
+                <motion.div
+                  key={i}
+                  animate={{
+                    y: [0, -15, 0],
+                    opacity: [0.2, 0.7, 0.2],
+                    scale: [1, 1.3, 1],
+                  }}
+                  transition={{
+                    duration: 2.5 + i * 0.4,
+                    repeat: Infinity,
+                    ease: 'easeInOut',
+                    delay: i * 0.5,
+                  }}
+                  style={{
+                    position: 'absolute',
+                    width: '4px', height: '4px',
+                    borderRadius: '50%',
+                    background: 'var(--accent)',
+                    top: `${20 + i * 15}%`,
+                    right: `${-10 - i * 3}%`,
+                    zIndex: 4,
+                    pointerEvents: 'none',
+                  }}
+                />
+              ))}
+
+              {/* Subtle scan line animation */}
+              <motion.div
+                animate={{ top: ['0%', '100%', '0%'] }}
+                transition={{ duration: 6, repeat: Infinity, ease: 'linear' }}
+                style={{
+                  position: 'absolute',
+                  left: 0, right: 0, height: '2px',
+                  background: 'linear-gradient(90deg, transparent, var(--accent), transparent)',
+                  zIndex: 4, opacity: 0.25,
+                  pointerEvents: 'none',
+                }}
+              />
+
               {/* Image Frame */}
-              <div style={{
-                position: 'absolute', inset: 0,
-                border: '1px solid var(--border)',
-                transform: 'translate(-16px, 16px)',
-                zIndex: 0
-              }} />
+              <motion.div
+                animate={{ x: [-16, -12, -16], y: [16, 12, 16] }}
+                transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
+                style={{
+                  position: 'absolute', inset: 0,
+                  border: '1px solid var(--border)',
+                  zIndex: 0,
+                }}
+              />
               
               <div style={{
                 position: 'relative', zIndex: 1,
@@ -159,18 +230,43 @@ export default function Hero() {
                   alt="Jarpula Pavan"
                   style={{
                     width: '100%', height: '100%', objectFit: 'cover',
-                    filter: 'grayscale(60%) contrast(1.1) brightness(0.9)',
-                    transition: 'filter 0.5s',
+                    objectPosition: 'center top',
+                    filter: 'grayscale(40%) contrast(1.15) brightness(0.92) saturate(0.8)',
+                    transition: 'filter 0.6s',
                   }}
-                  onMouseEnter={e => e.currentTarget.style.filter = 'grayscale(0%) contrast(1) brightness(1)'}
-                  onMouseLeave={e => e.currentTarget.style.filter = 'grayscale(60%) contrast(1.1) brightness(0.9)'}
+                  onMouseEnter={e => e.currentTarget.style.filter = 'grayscale(0%) contrast(1.05) brightness(1) saturate(1.2)'}
+                  onMouseLeave={e => e.currentTarget.style.filter = 'grayscale(40%) contrast(1.15) brightness(0.92) saturate(0.8)'}
                 />
-                {/* Subtle dark overlay */}
+                {/* Dark gradient overlay */}
                 <div style={{
                   position: 'absolute', inset: 0,
-                  background: 'linear-gradient(to top, var(--bg) 0%, transparent 40%)',
+                  background: 'linear-gradient(to top, rgba(3,3,3,0.7) 0%, transparent 50%)',
                   pointerEvents: 'none'
                 }} />
+                {/* Side gold shimmer */}
+                <div style={{
+                  position: 'absolute', inset: 0,
+                  background: 'linear-gradient(135deg, rgba(212,175,55,0.08) 0%, transparent 50%)',
+                  pointerEvents: 'none',
+                }} />
+                {/* Name tag at bottom */}
+                <div style={{
+                  position: 'absolute', bottom: '20px', left: '20px',
+                  zIndex: 2,
+                }}>
+                  <div style={{
+                    fontFamily: 'var(--font-mono)', fontSize: '10px',
+                    color: 'var(--accent)', letterSpacing: '0.2em',
+                    textTransform: 'uppercase', marginBottom: '4px',
+                    opacity: 0.8,
+                  }}>
+                    Jarpula Pavan
+                  </div>
+                  <div style={{
+                    width: '32px', height: '1px',
+                    background: 'var(--accent)', opacity: 0.5,
+                  }} />
+                </div>
               </div>
             </div>
           </motion.div>
@@ -193,10 +289,15 @@ export default function Hero() {
           letterSpacing: '0.2em', color: 'var(--text-muted)',
           textTransform: 'uppercase',
         }}>Scroll</div>
-        <div style={{
-          width: '1px', height: '40px',
-          background: 'linear-gradient(to bottom, var(--text-muted), transparent)',
-        }} />
+        <motion.div
+          animate={{ scaleY: [1, 0.3, 1], opacity: [1, 0.3, 1] }}
+          transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
+          style={{
+            width: '1px', height: '40px',
+            background: 'linear-gradient(to bottom, var(--accent), transparent)',
+            transformOrigin: 'top',
+          }}
+        />
       </motion.div>
     </section>
   );

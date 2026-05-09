@@ -2,16 +2,72 @@ import { useRef, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
 
 const socials = [
-  { label: 'Email', value: 'mepavaniitkgp@gmail.com', href: 'mailto:mepavaniitkgp@gmail.com', icon: '✉' },
-  { label: 'LinkedIn', value: 'linkedin.com/in/Jarpula-Pavan', href: 'https://linkedin.com/in/Jarpula-Pavan', icon: '◈' },
-  { label: 'GitHub', value: 'github.com/pavanjarpula', href: 'https://github.com/pavanjarpula', icon: '⬡' },
-  { label: 'Phone', value: '+91 6304595065', href: 'tel:+916304595065', icon: '◎' },
+  {
+    label: 'Email',
+    value: 'mepavaniitkgp@gmail.com',
+    href: 'mailto:mepavaniitkgp@gmail.com',
+    icon: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+        <polyline points="22,6 12,13 2,6"/>
+      </svg>
+    ),
+  },
+  {
+    label: 'LinkedIn',
+    value: 'linkedin.com/in/Jarpula-Pavan',
+    href: 'https://linkedin.com/in/Jarpula-Pavan',
+    icon: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+        <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/>
+        <rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
+      </svg>
+    ),
+  },
+  {
+    label: 'GitHub',
+    value: 'github.com/pavanjarpula',
+    href: 'https://github.com/pavanjarpula',
+    icon: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/>
+      </svg>
+    ),
+  },
+  {
+    label: 'Phone',
+    value: '+91 6304595065',
+    href: 'tel:+916304595065',
+    icon: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+        <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.95 13.73 19.79 19.79 0 01.88 5.1 2 2 0 012.86 3h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.09 10.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+      </svg>
+    ),
+  },
 ];
 
 export default function Contact() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-80px' });
   const [hoveredIdx, setHoveredIdx] = useState(null);
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [status, setStatus] = useState('idle'); // idle | sending | sent | error
+
+  const handleSend = async () => {
+    if (!formData.name || !formData.email || !formData.message) return;
+    setStatus('sending');
+    // Open mailto with prefilled content
+    const subject = encodeURIComponent(`Portfolio Contact from ${formData.name}`);
+    const body = encodeURIComponent(
+      `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
+    );
+    window.location.href = `mailto:mepavaniitkgp@gmail.com?subject=${subject}&body=${body}`;
+    setTimeout(() => {
+      setStatus('sent');
+      setFormData({ name: '', email: '', message: '' });
+      setTimeout(() => setStatus('idle'), 4000);
+    }, 800);
+  };
 
   return (
     <section id="contact" style={{ padding: '140px 0 80px', position: 'relative', overflow: 'hidden' }}>
@@ -21,7 +77,7 @@ export default function Contact() {
           initial={{ opacity: 0, y: 40 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-          style={{ textAlign: 'center', maxWidth: '700px', margin: '0 auto 80px' }}
+          style={{ textAlign: 'center', maxWidth: '700px', margin: '0 auto 60px' }}
         >
           <div className="section-label" style={{ justifyContent: 'center' }}>Contact</div>
           <h2 className="section-title" style={{ marginBottom: '24px', fontStyle: 'italic', fontWeight: 400 }}>
@@ -31,36 +87,136 @@ export default function Contact() {
           </h2>
           <p style={{
             fontSize: '17px', color: 'var(--text-muted)', lineHeight: 1.8,
-            marginBottom: '40px', fontWeight: 300,
+            fontWeight: 300,
           }}>
             I'm actively seeking opportunities to contribute to exciting projects and engineering teams.
             Open to collaborations and roles where I can make a meaningful impact.
           </p>
-          <a
-            href="mailto:mepavaniitkgp@gmail.com"
+        </motion.div>
+
+        {/* Contact Form */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+          style={{
+            maxWidth: '640px',
+            margin: '0 auto 80px',
+            background: 'var(--surface)',
+            border: '1px solid var(--border)',
+            padding: '40px',
+            borderRadius: '4px',
+          }}
+        >
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '16px' }}>
+            <div>
+              <label style={{ fontSize: '11px', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--text-subtle)', display: 'block', marginBottom: '8px', fontFamily: 'var(--font-mono)' }}>
+                Name
+              </label>
+              <input
+                type="text"
+                value={formData.name}
+                onChange={e => setFormData(p => ({ ...p, name: e.target.value }))}
+                placeholder="Your name"
+                style={{
+                  width: '100%', padding: '12px 16px',
+                  background: 'var(--bg)', border: '1px solid var(--border)',
+                  color: 'var(--text)', fontSize: '14px',
+                  fontFamily: 'var(--font-body)',
+                  outline: 'none', borderRadius: '2px',
+                  transition: 'border-color 0.3s',
+                }}
+                onFocus={e => e.target.style.borderColor = 'var(--accent)'}
+                onBlur={e => e.target.style.borderColor = 'var(--border)'}
+              />
+            </div>
+            <div>
+              <label style={{ fontSize: '11px', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--text-subtle)', display: 'block', marginBottom: '8px', fontFamily: 'var(--font-mono)' }}>
+                Email
+              </label>
+              <input
+                type="email"
+                value={formData.email}
+                onChange={e => setFormData(p => ({ ...p, email: e.target.value }))}
+                placeholder="your@email.com"
+                style={{
+                  width: '100%', padding: '12px 16px',
+                  background: 'var(--bg)', border: '1px solid var(--border)',
+                  color: 'var(--text)', fontSize: '14px',
+                  fontFamily: 'var(--font-body)',
+                  outline: 'none', borderRadius: '2px',
+                  transition: 'border-color 0.3s',
+                }}
+                onFocus={e => e.target.style.borderColor = 'var(--accent)'}
+                onBlur={e => e.target.style.borderColor = 'var(--border)'}
+              />
+            </div>
+          </div>
+          <div style={{ marginBottom: '24px' }}>
+            <label style={{ fontSize: '11px', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--text-subtle)', display: 'block', marginBottom: '8px', fontFamily: 'var(--font-mono)' }}>
+              Message
+            </label>
+            <textarea
+              value={formData.message}
+              onChange={e => setFormData(p => ({ ...p, message: e.target.value }))}
+              placeholder="Tell me about your project or opportunity..."
+              rows={5}
+              style={{
+                width: '100%', padding: '12px 16px',
+                background: 'var(--bg)', border: '1px solid var(--border)',
+                color: 'var(--text)', fontSize: '14px',
+                fontFamily: 'var(--font-body)',
+                outline: 'none', borderRadius: '2px',
+                resize: 'vertical',
+                transition: 'border-color 0.3s',
+              }}
+              onFocus={e => e.target.style.borderColor = 'var(--accent)'}
+              onBlur={e => e.target.style.borderColor = 'var(--border)'}
+            />
+          </div>
+          <button
             data-hover
+            onClick={handleSend}
+            disabled={status === 'sending'}
             style={{
-              display: 'inline-flex', alignItems: 'center', gap: '12px',
-              padding: '18px 48px',
-              background: 'var(--text)',
-              border: '1px solid var(--text)',
-              color: 'var(--bg)', textDecoration: 'none',
+              width: '100%',
+              padding: '16px 32px',
+              background: status === 'sent' ? 'rgba(212,175,55,0.15)' : 'var(--text)',
+              border: status === 'sent' ? '1px solid var(--accent)' : '1px solid var(--text)',
+              color: status === 'sent' ? 'var(--accent)' : 'var(--bg)',
               fontFamily: 'var(--font-body)',
               fontSize: '13px', fontWeight: 600,
               letterSpacing: '0.08em', textTransform: 'uppercase',
+              cursor: 'none',
               transition: 'all 0.3s',
+              display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px',
             }}
-            onMouseEnter={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = 'var(--text)'; }}
-            onMouseLeave={e => { e.currentTarget.style.background = 'var(--text)'; e.currentTarget.style.color = 'var(--bg)'; }}
+            onMouseEnter={e => { if (status !== 'sent') { e.currentTarget.style.background = 'var(--accent)'; e.currentTarget.style.borderColor = 'var(--accent)'; e.currentTarget.style.color = 'var(--bg)'; } }}
+            onMouseLeave={e => { if (status !== 'sent') { e.currentTarget.style.background = 'var(--text)'; e.currentTarget.style.borderColor = 'var(--text)'; e.currentTarget.style.color = 'var(--bg)'; } }}
           >
-            Send me a message
-          </a>
+            {status === 'sending' ? (
+              <>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" style={{ animation: 'spin 1s linear infinite' }}><path d="M21 12a9 9 0 11-6.219-8.56"/></svg>
+                Sending...
+              </>
+            ) : status === 'sent' ? (
+              <>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                Message Sent!
+              </>
+            ) : (
+              <>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                Send Message
+              </>
+            )}
+          </button>
         </motion.div>
 
         {/* Social Links */}
         <div style={{
-          display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-          gap: '16px', marginBottom: '100px',
+          display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)',
+          gap: '16px', marginBottom: '80px',
         }}>
           {socials.map((social, i) => (
             <motion.a
@@ -75,37 +231,37 @@ export default function Contact() {
               onMouseEnter={() => setHoveredIdx(i)}
               onMouseLeave={() => setHoveredIdx(null)}
               style={{
-                padding: '32px 24px',
+                padding: '24px 20px',
                 background: 'var(--surface)',
                 border: '1px solid var(--border)',
                 textDecoration: 'none',
                 textAlign: 'center',
                 transition: 'all 0.3s',
-                display: 'block',
+                display: 'flex', flexDirection: 'column', alignItems: 'center',
+                borderRadius: '2px',
               }}
             >
               <div style={{
-                fontSize: '24px', marginBottom: '16px',
-                color: hoveredIdx === i ? 'var(--text)' : 'var(--text-muted)',
+                color: hoveredIdx === i ? 'var(--accent)' : 'var(--text-muted)',
                 transition: 'color 0.3s',
-                fontFamily: 'var(--font-display)',
-                fontStyle: 'italic'
+                marginBottom: '12px',
               }}>
                 {social.icon}
               </div>
               <div style={{
-                fontSize: '11px', letterSpacing: '0.1em', textTransform: 'uppercase',
-                color: 'var(--text-muted)', marginBottom: '8px',
+                fontSize: '10px', letterSpacing: '0.1em', textTransform: 'uppercase',
+                color: 'var(--text-muted)', marginBottom: '6px',
                 fontFamily: 'var(--font-mono)',
               }}>
                 {social.label}
               </div>
               <div style={{
-                fontSize: '13px',
+                fontSize: '11px',
                 color: hoveredIdx === i ? 'var(--text)' : 'var(--text-subtle)',
                 transition: 'color 0.3s',
                 wordBreak: 'break-all',
-                fontWeight: 300
+                fontWeight: 300,
+                lineHeight: 1.4,
               }}>
                 {social.value}
               </div>
@@ -167,6 +323,11 @@ export default function Contact() {
           </div>
         </motion.div>
       </div>
+
+      <style>{`
+        @keyframes spin { to { transform: rotate(360deg); } }
+        input::placeholder, textarea::placeholder { color: var(--text-subtle); }
+      `}</style>
     </section>
   );
 }
