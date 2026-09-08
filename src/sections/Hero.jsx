@@ -11,6 +11,15 @@ const item = {
   show: { opacity: 1, y: 0, transition: { duration: 0.9, ease: [0.22, 1, 0.36, 1] } }
 };
 
+const heroSkills = [
+  { name: 'React', color: '#61dafb' },
+  { name: 'Python', color: '#4b9fd5' },
+  { name: 'Node.js', color: '#68a063' },
+  { name: 'C++', color: '#00599C' },
+  { name: 'FastAPI', color: '#009688' },
+  { name: 'ML', color: '#d4af37' },
+];
+
 export default function Hero() {
   const containerRef = useRef(null);
 
@@ -29,11 +38,39 @@ export default function Hero() {
     >
       {/* Glow orb */}
       <div style={{
-        position: 'absolute', width: '800px', height: '800px',
+        position: 'absolute', width: '700px', height: '700px',
         borderRadius: '50%', background: 'radial-gradient(circle, var(--glow) 0%, transparent 70%)',
         top: '50%', left: '50%', transform: 'translate(-50%, -50%)',
-        pointerEvents: 'none', opacity: 0.5
+        pointerEvents: 'none', opacity: 0.4
       }} />
+
+      {/* Floating gold particles */}
+      {[...Array(6)].map((_, i) => (
+        <motion.div
+          key={i}
+          animate={{
+            y: [0, -20, 0],
+            opacity: [0.15, 0.5, 0.15],
+            scale: [1, 1.2, 1],
+          }}
+          transition={{
+            duration: 3 + i * 0.5,
+            repeat: Infinity,
+            ease: 'easeInOut',
+            delay: i * 0.6,
+          }}
+          style={{
+            position: 'absolute',
+            width: '3px', height: '3px',
+            borderRadius: '50%',
+            background: 'var(--accent)',
+            top: `${15 + i * 12}%`,
+            left: `${5 + i * 14}%`,
+            zIndex: 1,
+            pointerEvents: 'none',
+          }}
+        />
+      ))}
 
       <div className="container" style={{ width: '100%' }}>
         <div style={{
@@ -135,65 +172,37 @@ export default function Hero() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-            style={{ position: 'relative', display: 'flex', justifyContent: 'center' }}
+            style={{ position: 'relative', display: 'flex', flexDirection: 'column', alignItems: 'center' }}
           >
             <div style={{
               width: '100%',
-              maxWidth: '500px',
+              maxWidth: '420px',
               aspectRatio: '4/5',
               position: 'relative',
             }}>
               {/* Animated corner decorations */}
               <motion.div
-                animate={{ opacity: [0.3, 0.8, 0.3] }}
+                animate={{ opacity: [0.3, 0.7, 0.3] }}
                 transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
                 style={{
-                  position: 'absolute', top: '-8px', left: '-8px',
-                  width: '40px', height: '40px',
+                  position: 'absolute', top: '-6px', left: '-6px',
+                  width: '32px', height: '32px',
                   borderTop: '2px solid var(--accent)',
                   borderLeft: '2px solid var(--accent)',
                   zIndex: 3,
                 }}
               />
               <motion.div
-                animate={{ opacity: [0.3, 0.8, 0.3] }}
+                animate={{ opacity: [0.3, 0.7, 0.3] }}
                 transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut', delay: 1.5 }}
                 style={{
-                  position: 'absolute', bottom: '-8px', right: '-8px',
-                  width: '40px', height: '40px',
+                  position: 'absolute', bottom: '-6px', right: '-6px',
+                  width: '32px', height: '32px',
                   borderBottom: '2px solid var(--accent)',
                   borderRight: '2px solid var(--accent)',
                   zIndex: 3,
                 }}
               />
-
-              {/* Floating particles */}
-              {[...Array(5)].map((_, i) => (
-                <motion.div
-                  key={i}
-                  animate={{
-                    y: [0, -15, 0],
-                    opacity: [0.2, 0.7, 0.2],
-                    scale: [1, 1.3, 1],
-                  }}
-                  transition={{
-                    duration: 2.5 + i * 0.4,
-                    repeat: Infinity,
-                    ease: 'easeInOut',
-                    delay: i * 0.5,
-                  }}
-                  style={{
-                    position: 'absolute',
-                    width: '4px', height: '4px',
-                    borderRadius: '50%',
-                    background: 'var(--accent)',
-                    top: `${20 + i * 15}%`,
-                    right: `${-10 - i * 3}%`,
-                    zIndex: 4,
-                    pointerEvents: 'none',
-                  }}
-                />
-              ))}
 
               {/* Subtle scan line animation */}
               <motion.div
@@ -201,16 +210,16 @@ export default function Hero() {
                 transition={{ duration: 6, repeat: Infinity, ease: 'linear' }}
                 style={{
                   position: 'absolute',
-                  left: 0, right: 0, height: '2px',
+                  left: 0, right: 0, height: '1px',
                   background: 'linear-gradient(90deg, transparent, var(--accent), transparent)',
-                  zIndex: 4, opacity: 0.25,
+                  zIndex: 4, opacity: 0.2,
                   pointerEvents: 'none',
                 }}
               />
 
-              {/* Image Frame */}
+              {/* Floating frame */}
               <motion.div
-                animate={{ x: [-16, -12, -16], y: [16, 12, 16] }}
+                animate={{ x: [-12, -8, -12], y: [12, 8, 12] }}
                 transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
                 style={{
                   position: 'absolute', inset: 0,
@@ -231,11 +240,11 @@ export default function Hero() {
                   style={{
                     width: '100%', height: '100%', objectFit: 'cover',
                     objectPosition: 'center top',
-                    filter: 'grayscale(40%) contrast(1.15) brightness(0.92) saturate(0.8)',
+                    filter: 'grayscale(30%) contrast(1.1) brightness(0.95) saturate(0.9)',
                     transition: 'filter 0.6s',
                   }}
-                  onMouseEnter={e => e.currentTarget.style.filter = 'grayscale(0%) contrast(1.05) brightness(1) saturate(1.2)'}
-                  onMouseLeave={e => e.currentTarget.style.filter = 'grayscale(40%) contrast(1.15) brightness(0.92) saturate(0.8)'}
+                  onMouseEnter={e => e.currentTarget.style.filter = 'grayscale(0%) contrast(1.05) brightness(1) saturate(1.1)'}
+                  onMouseLeave={e => e.currentTarget.style.filter = 'grayscale(30%) contrast(1.1) brightness(0.95) saturate(0.9)'}
                 />
                 {/* Dark gradient overlay */}
                 <div style={{
@@ -243,15 +252,15 @@ export default function Hero() {
                   background: 'linear-gradient(to top, rgba(3,3,3,0.7) 0%, transparent 50%)',
                   pointerEvents: 'none'
                 }} />
-                {/* Side gold shimmer */}
+                {/* Gold shimmer overlay */}
                 <div style={{
                   position: 'absolute', inset: 0,
-                  background: 'linear-gradient(135deg, rgba(212,175,55,0.08) 0%, transparent 50%)',
+                  background: 'linear-gradient(135deg, rgba(212,175,55,0.06) 0%, transparent 50%)',
                   pointerEvents: 'none',
                 }} />
-                {/* Name tag at bottom */}
+                {/* Name tag */}
                 <div style={{
-                  position: 'absolute', bottom: '20px', left: '20px',
+                  position: 'absolute', bottom: '16px', left: '16px',
                   zIndex: 2,
                 }}>
                   <div style={{
@@ -263,12 +272,52 @@ export default function Hero() {
                     Jarpula Pavan
                   </div>
                   <div style={{
-                    width: '32px', height: '1px',
+                    width: '24px', height: '1px',
                     background: 'var(--accent)', opacity: 0.5,
                   }} />
                 </div>
               </div>
             </div>
+
+            {/* Skills bar under photo */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1.2, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+              style={{
+                marginTop: '24px',
+                display: 'flex',
+                gap: '12px',
+                flexWrap: 'wrap',
+                justifyContent: 'center',
+              }}
+            >
+              {heroSkills.map((skill, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 1.4 + i * 0.1, duration: 0.5 }}
+                  style={{
+                    padding: '5px 14px',
+                    background: 'var(--surface)',
+                    border: '1px solid var(--border)',
+                    borderRadius: '100px',
+                    fontSize: '11px',
+                    fontFamily: 'var(--font-mono)',
+                    color: skill.color,
+                    fontWeight: 500,
+                    letterSpacing: '0.02em',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '6px',
+                  }}
+                >
+                  <span style={{ width: '5px', height: '5px', borderRadius: '50%', background: skill.color, opacity: 0.7 }} />
+                  {skill.name}
+                </motion.div>
+              ))}
+            </motion.div>
           </motion.div>
         </div>
       </div>

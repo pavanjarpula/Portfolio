@@ -52,7 +52,7 @@ body {
 .cursor-follower {
   position: fixed;
   width: 36px; height: 36px;
-  border: 1.5px solid rgba(123, 104, 238, 0.5);
+  border: 1.5px solid rgba(212, 175, 55, 0.4);
   border-radius: 50%;
   pointer-events: none;
   z-index: 9998;
