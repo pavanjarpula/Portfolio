@@ -171,46 +171,53 @@ export default function Hero() {
               aspectRatio: '4/5',
               position: 'relative',
             }}>
-              {/* Animated corner decorations */}
+              {/* Animated corner brackets — all 4 corners */}
+              {[
+                { top: '-8px', left: '-8px', borderTop: '2px solid var(--accent)', borderLeft: '2px solid var(--accent)', delay: 0 },
+                { top: '-8px', right: '-8px', borderTop: '2px solid var(--accent)', borderRight: '2px solid var(--accent)', delay: 0.75 },
+                { bottom: '-8px', left: '-8px', borderBottom: '2px solid var(--accent)', borderLeft: '2px solid var(--accent)', delay: 1.5 },
+                { bottom: '-8px', right: '-8px', borderBottom: '2px solid var(--accent)', borderRight: '2px solid var(--accent)', delay: 2.25 },
+              ].map((pos, i) => (
+                <motion.div
+                  key={i}
+                  animate={{ opacity: [0.2, 0.8, 0.2] }}
+                  transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut', delay: pos.delay }}
+                  style={{ position: 'absolute', width: '28px', height: '28px', zIndex: 3, ...pos }}
+                />
+              ))}
+
+              {/* Glowing ring around photo */}
               <motion.div
-                animate={{ opacity: [0.3, 0.7, 0.3] }}
-                transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
+                animate={{ opacity: [0.15, 0.4, 0.15], scale: [1, 1.01, 1] }}
+                transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
                 style={{
-                  position: 'absolute', top: '-6px', left: '-6px',
-                  width: '32px', height: '32px',
-                  borderTop: '2px solid var(--accent)',
-                  borderLeft: '2px solid var(--accent)',
-                  zIndex: 3,
-                }}
-              />
-              <motion.div
-                animate={{ opacity: [0.3, 0.7, 0.3] }}
-                transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut', delay: 1.5 }}
-                style={{
-                  position: 'absolute', bottom: '-6px', right: '-6px',
-                  width: '32px', height: '32px',
-                  borderBottom: '2px solid var(--accent)',
-                  borderRight: '2px solid var(--accent)',
-                  zIndex: 3,
+                  position: 'absolute', inset: '-3px',
+                  border: '1px solid var(--accent)',
+                  zIndex: 2,
+                  pointerEvents: 'none',
+                  boxShadow: '0 0 20px rgba(212,175,55,0.1), inset 0 0 20px rgba(212,175,55,0.05)',
                 }}
               />
 
-              {/* Subtle scan line animation */}
-              <motion.div
-                animate={{ top: ['0%', '100%', '0%'] }}
-                transition={{ duration: 6, repeat: Infinity, ease: 'linear' }}
-                style={{
-                  position: 'absolute',
-                  left: 0, right: 0, height: '1px',
-                  background: 'linear-gradient(90deg, transparent, var(--accent), transparent)',
-                  zIndex: 4, opacity: 0.2,
-                  pointerEvents: 'none',
-                }}
-              />
+              {/* Animated scan lines — multiple */}
+              {[0, 1, 2].map(i => (
+                <motion.div
+                  key={i}
+                  animate={{ top: ['0%', '100%'] }}
+                  transition={{ duration: 4 + i * 2, repeat: Infinity, ease: 'linear', delay: i * 1.5 }}
+                  style={{
+                    position: 'absolute',
+                    left: 0, right: 0, height: '1px',
+                    background: 'linear-gradient(90deg, transparent, var(--accent), transparent)',
+                    zIndex: 4, opacity: 0.15 - i * 0.04,
+                    pointerEvents: 'none',
+                  }}
+                />
+              ))}
 
               {/* Floating frame */}
               <motion.div
-                animate={{ x: [-12, -8, -12], y: [12, 8, 12] }}
+                animate={{ x: [-10, -6, -10], y: [10, 6, 10] }}
                 transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
                 style={{
                   position: 'absolute', inset: 0,
@@ -218,6 +225,58 @@ export default function Hero() {
                   zIndex: 0,
                 }}
               />
+
+              {/* Floating tech particles around photo */}
+              {[
+                { text: '</>', top: '8%', left: '-12%', delay: 0 },
+                { text: '{}', top: '25%', right: '-10%', delay: 0.8 },
+                { text: '=>', top: '55%', left: '-14%', delay: 1.6 },
+                { text: '[]', top: '75%', right: '-12%', delay: 2.4 },
+                { text: '#', top: '40%', left: '-10%', delay: 3.2 },
+                { text: '//', top: '90%', left: '-8%', delay: 0.4 },
+              ].map((p, i) => (
+                <motion.div
+                  key={i}
+                  animate={{ y: [0, -8, 0], opacity: [0.2, 0.5, 0.2] }}
+                  transition={{ duration: 3 + i * 0.3, repeat: Infinity, ease: 'easeInOut', delay: p.delay }}
+                  style={{
+                    position: 'absolute',
+                    fontFamily: 'var(--font-mono)',
+                    fontSize: '10px',
+                    color: 'var(--accent)',
+                    zIndex: 5,
+                    pointerEvents: 'none',
+                    opacity: 0.3,
+                    ...p,
+                  }}
+                >
+                  {p.text}
+                </motion.div>
+              ))}
+
+              {/* Glowing dots at edges */}
+              {[
+                { top: '50%', left: '-4px', delay: 0 },
+                { top: '50%', right: '-4px', delay: 1 },
+                { top: '-4px', left: '50%', delay: 2 },
+                { bottom: '-4px', left: '50%', delay: 3 },
+              ].map((pos, i) => (
+                <motion.div
+                  key={i}
+                  animate={{ scale: [1, 1.5, 1], opacity: [0.4, 0.8, 0.4] }}
+                  transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut', delay: pos.delay }}
+                  style={{
+                    position: 'absolute',
+                    width: '6px', height: '6px',
+                    borderRadius: '50%',
+                    background: 'var(--accent)',
+                    zIndex: 5,
+                    pointerEvents: 'none',
+                    boxShadow: '0 0 8px var(--accent)',
+                    ...pos,
+                  }}
+                />
+              ))}
               
               <div style={{
                 position: 'relative', zIndex: 1,
@@ -240,32 +299,62 @@ export default function Hero() {
                 {/* Dark gradient overlay */}
                 <div style={{
                   position: 'absolute', inset: 0,
-                  background: 'linear-gradient(to top, rgba(3,3,3,0.75) 0%, transparent 50%)',
+                  background: 'linear-gradient(to top, rgba(3,3,3,0.8) 0%, rgba(3,3,3,0.2) 40%, transparent 60%)',
                   pointerEvents: 'none'
                 }} />
                 {/* Gold tone overlay */}
                 <div style={{
                   position: 'absolute', inset: 0,
-                  background: 'linear-gradient(135deg, rgba(212,175,55,0.1) 0%, rgba(176,141,43,0.05) 50%, transparent 100%)',
+                  background: 'linear-gradient(135deg, rgba(212,175,55,0.12) 0%, rgba(176,141,43,0.06) 50%, transparent 100%)',
                   pointerEvents: 'none',
                 }} />
-                {/* Name tag */}
+                {/* Vignette */}
                 <div style={{
-                  position: 'absolute', bottom: '16px', left: '16px',
-                  zIndex: 2,
+                  position: 'absolute', inset: 0,
+                  background: 'radial-gradient(ellipse at center, transparent 50%, rgba(3,3,3,0.4) 100%)',
+                  pointerEvents: 'none',
+                }} />
+                {/* Name tag + status */}
+                <div style={{
+                  position: 'absolute', bottom: '16px', left: '16px', right: '16px',
+                  zIndex: 2, display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end',
                 }}>
-                  <div style={{
-                    fontFamily: 'var(--font-mono)', fontSize: '10px',
-                    color: 'var(--accent)', letterSpacing: '0.2em',
-                    textTransform: 'uppercase', marginBottom: '4px',
-                    opacity: 0.8,
-                  }}>
-                    Jarpula Pavan
+                  <div>
+                    <div style={{
+                      fontFamily: 'var(--font-mono)', fontSize: '10px',
+                      color: 'var(--accent)', letterSpacing: '0.2em',
+                      textTransform: 'uppercase', marginBottom: '4px',
+                      opacity: 0.9,
+                    }}>
+                      Jarpula Pavan
+                    </div>
+                    <div style={{
+                      fontFamily: 'var(--font-mono)', fontSize: '9px',
+                      color: 'var(--text-subtle)', letterSpacing: '0.1em',
+                    }}>
+                      IIT Kharagpur
+                    </div>
+                    <div style={{
+                      width: '24px', height: '1px',
+                      background: 'var(--accent)', opacity: 0.5, marginTop: '6px',
+                    }} />
                   </div>
-                  <div style={{
-                    width: '24px', height: '1px',
-                    background: 'var(--accent)', opacity: 0.5,
-                  }} />
+                  <motion.div
+                    animate={{ opacity: [0.6, 1, 0.6] }}
+                    transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+                    style={{
+                      display: 'flex', alignItems: 'center', gap: '5px',
+                      padding: '4px 10px',
+                      background: 'rgba(212,175,55,0.1)',
+                      border: '1px solid rgba(212,175,55,0.25)',
+                      borderRadius: '100px',
+                    }}
+                  >
+                    <div style={{ width: '5px', height: '5px', borderRadius: '50%', background: '#4ade80' }} />
+                    <span style={{ fontFamily: 'var(--font-mono)', fontSize: '8px', color: 'var(--accent)', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
+                      Open to work
+                    </span>
+                  </motion.div>
                 </div>
               </div>
             </div>
