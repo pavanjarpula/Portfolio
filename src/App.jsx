@@ -5,6 +5,7 @@ import Navbar from './components/Navbar';
 import Marquee from './components/Marquee';
 import Hero from './sections/Hero';
 import About from './sections/About';
+import Experience from './sections/Experience';
 import Skills from './sections/Skills';
 import Projects from './sections/Projects';
 import Achievements from './sections/Achievements';
@@ -33,6 +34,7 @@ export default function App() {
         <Hero />
         <Marquee />
         <About />
+        <Experience />
         <Skills />
         <Projects />
         <Achievements />

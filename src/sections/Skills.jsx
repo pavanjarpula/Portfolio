@@ -1,7 +1,6 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 
-// SVG icon components — dark theme friendly
 const Icons = {
   C: () => (
     <svg viewBox="0 0 32 32" width="18" height="18" fill="none">
@@ -21,10 +20,10 @@ const Icons = {
       <text x="16" y="22" textAnchor="middle" fontSize="10" fontWeight="700" fill="#4b9fd5" fontFamily="monospace">Py</text>
     </svg>
   ),
-  HTML: () => (
-    <svg viewBox="0 0 32 32" width="18" height="18">
-      <rect width="32" height="32" rx="3" fill="#e34c26" opacity="0.15"/>
-      <text x="16" y="21" textAnchor="middle" fontSize="9" fontWeight="700" fill="#e34c26" fontFamily="monospace">HTML</text>
+  SQL: () => (
+    <svg viewBox="0 0 32 32" width="18" height="18" fill="none">
+      <rect width="32" height="32" rx="3" fill="#4479a1" opacity="0.15"/>
+      <text x="16" y="21" textAnchor="middle" fontSize="9" fontWeight="700" fill="#4479a1" fontFamily="monospace">SQL</text>
     </svg>
   ),
   TypeScript: () => (
@@ -47,20 +46,6 @@ const Icons = {
       <path d="M3 19c1-4 3.5-6 7-5 3.5 1 4.5 4 6 5 1.5 1 3.5.5 5-1-1 4-3.5 6-7 5-3.5-1-4.5-4-6-5-1.5-1-3.5-.5-5 1z" fill="#38bdf8" opacity="0.4"/>
     </svg>
   ),
-  Redux: () => (
-    <svg viewBox="0 0 32 32" width="18" height="18" fill="none">
-      <path d="M20 7c2.5.5 4 2.5 3.5 5" stroke="#764abc" strokeWidth="2" strokeLinecap="round" opacity="0.8"/>
-      <path d="M23 16c.5 3-1.5 5.5-4.5 5.5" stroke="#764abc" strokeWidth="2" strokeLinecap="round" opacity="0.8"/>
-      <path d="M9 21.5C6.5 21 5 19 5.5 16" stroke="#764abc" strokeWidth="2" strokeLinecap="round" opacity="0.8"/>
-      <circle cx="16" cy="16" r="3" fill="#764abc" opacity="0.6"/>
-    </svg>
-  ),
-  NextJS: () => (
-    <svg viewBox="0 0 32 32" width="18" height="18" fill="none">
-      <circle cx="16" cy="16" r="13" stroke="#e5e5e5" strokeWidth="1.5" opacity="0.3"/>
-      <text x="9" y="21" fontSize="11" fontWeight="800" fill="#e5e5e5" fontFamily="monospace" opacity="0.8">N›</text>
-    </svg>
-  ),
   NodeJS: () => (
     <svg viewBox="0 0 32 32" width="18" height="18" fill="none">
       <path d="M16 4L28 11v10l-12 7L4 21V11z" stroke="#68a063" strokeWidth="1.5" fill="none" opacity="0.6"/>
@@ -72,19 +57,22 @@ const Icons = {
       <text x="4" y="20" fontSize="10" fontWeight="700" fill="#e5e5e5" fontFamily="monospace" opacity="0.6">exp</text>
     </svg>
   ),
-  GraphQL: () => (
+  FastAPI: () => (
     <svg viewBox="0 0 32 32" width="18" height="18" fill="none">
-      <circle cx="16" cy="16" r="3" fill="#e10098" opacity="0.8"/>
-      {[0,60,120,180,240,300].map((deg, i) => {
-        const r = 11, rad = (deg * Math.PI) / 180;
-        return <line key={i} x1="16" y1="16" x2={16 + r * Math.sin(rad)} y2={16 - r * Math.cos(rad)} stroke="#e10098" strokeWidth="1.5" opacity="0.5"/>;
-      })}
+      <rect width="32" height="32" rx="3" fill="#009688" opacity="0.15"/>
+      <text x="16" y="21" textAnchor="middle" fontSize="8" fontWeight="700" fill="#009688" fontFamily="monospace">FA</text>
     </svg>
   ),
   MongoDB: () => (
     <svg viewBox="0 0 32 32" width="18" height="18" fill="none">
       <path d="M16 4c0 0-7 8-7 14a7 7 0 0014 0C23 12 16 4 16 4z" stroke="#4faa41" strokeWidth="1.5" fill="none" opacity="0.6"/>
       <line x1="16" y1="18" x2="16" y2="28" stroke="#4faa41" strokeWidth="1.5" opacity="0.6"/>
+    </svg>
+  ),
+  PostgreSQL: () => (
+    <svg viewBox="0 0 32 32" width="18" height="18" fill="none">
+      <rect width="32" height="32" rx="3" fill="#336791" opacity="0.15"/>
+      <text x="16" y="21" textAnchor="middle" fontSize="7" fontWeight="700" fill="#336791" fontFamily="monospace">PG</text>
     </svg>
   ),
   Git: () => (
@@ -139,12 +127,59 @@ const Icons = {
       <path d="M12 16h8" stroke="#1c7c54" strokeWidth="2" opacity="0.8"/>
     </svg>
   ),
+  LangGraph: () => (
+    <svg viewBox="0 0 32 32" width="18" height="18" fill="none">
+      <circle cx="8" cy="10" r="3" stroke="#1c7c54" strokeWidth="1.5" fill="none" opacity="0.8"/>
+      <circle cx="24" cy="10" r="3" stroke="#1c7c54" strokeWidth="1.5" fill="none" opacity="0.8"/>
+      <circle cx="16" cy="24" r="3" stroke="#1c7c54" strokeWidth="1.5" fill="none" opacity="0.8"/>
+      <path d="M11 10h10M8 13l5 8M24 13l-5 8" stroke="#1c7c54" strokeWidth="1.5" opacity="0.6"/>
+    </svg>
+  ),
   RAG: () => (
     <svg viewBox="0 0 32 32" width="18" height="18" fill="none">
       <rect x="4" y="8" width="10" height="6" rx="1.5" fill="#7b68ee" opacity="0.5"/>
       <rect x="4" y="18" width="10" height="6" rx="1.5" fill="#7b68ee" opacity="0.3"/>
       <circle cx="24" cy="16" r="5" stroke="#7b68ee" strokeWidth="1.5" fill="none" opacity="0.8"/>
       <path d="M14 11l6 2M14 21l6-2" stroke="#7b68ee" strokeWidth="1" opacity="0.6"/>
+    </svg>
+  ),
+  VectorSearch: () => (
+    <svg viewBox="0 0 32 32" width="18" height="18" fill="none">
+      <circle cx="16" cy="16" r="10" stroke="#7b68ee" strokeWidth="1.5" fill="none" opacity="0.5"/>
+      <circle cx="12" cy="12" r="2" fill="#7b68ee" opacity="0.8"/>
+      <circle cx="20" cy="14" r="2" fill="#7b68ee" opacity="0.6"/>
+      <circle cx="14" cy="20" r="2" fill="#7b68ee" opacity="0.7"/>
+      <path d="M12 12l8 2M12 12l2 8" stroke="#7b68ee" strokeWidth="1" opacity="0.4"/>
+    </svg>
+  ),
+  PromptEng: () => (
+    <svg viewBox="0 0 32 32" width="18" height="18" fill="none">
+      <rect x="4" y="6" width="24" height="20" rx="2" stroke="#ff6b35" strokeWidth="1.5" fill="none" opacity="0.5"/>
+      <text x="16" y="20" textAnchor="middle" fontSize="10" fontWeight="700" fill="#ff6b35" fontFamily="monospace" opacity="0.8">{'>'}_</text>
+    </svg>
+  ),
+  XGBoost: () => (
+    <svg viewBox="0 0 32 32" width="18" height="18" fill="none">
+      <rect width="32" height="32" rx="3" fill="#fca120" opacity="0.15"/>
+      <text x="16" y="21" textAnchor="middle" fontSize="8" fontWeight="700" fill="#fca120" fontFamily="monospace">XGB</text>
+    </svg>
+  ),
+  Streamlit: () => (
+    <svg viewBox="0 0 32 32" width="18" height="18" fill="none">
+      <rect width="32" height="32" rx="3" fill="#ff4f4f" opacity="0.15"/>
+      <text x="16" y="21" textAnchor="middle" fontSize="8" fontWeight="700" fill="#ff4f4f" fontFamily="monospace">ST</text>
+    </svg>
+  ),
+  Postman: () => (
+    <svg viewBox="0 0 32 32" width="18" height="18" fill="none">
+      <rect width="32" height="32" rx="3" fill="#ff6c37" opacity="0.15"/>
+      <text x="16" y="21" textAnchor="middle" fontSize="7" fontWeight="700" fill="#ff6c37" fontFamily="monospace">PM</text>
+    </svg>
+  ),
+  FAISS: () => (
+    <svg viewBox="0 0 32 32" width="18" height="18" fill="none">
+      <rect width="32" height="32" rx="3" fill="#068cd1" opacity="0.15"/>
+      <text x="16" y="21" textAnchor="middle" fontSize="8" fontWeight="700" fill="#068cd1" fontFamily="monospace">F</text>
     </svg>
   ),
 };
@@ -154,56 +189,57 @@ const skillGroups = [
     category: 'Languages',
     catIcon: '{ }',
     skills: [
-      { name: 'C / C++', Icon: Icons.C },
-      { name: 'JavaScript', Icon: Icons.JavaScript },
       { name: 'Python', Icon: Icons.Python },
-      { name: 'HTML / CSS', Icon: Icons.HTML },
-      { name: 'TypeScript', Icon: Icons.TypeScript },
+      { name: 'C / C++', Icon: Icons.C },
+      { name: 'SQL', Icon: Icons.SQL },
+      { name: 'JavaScript', Icon: Icons.JavaScript },
     ],
   },
   {
-    category: 'Frontend',
-    catIcon: '◈',
+    category: 'Libraries & Frameworks',
+    catIcon: '◇',
     skills: [
-      { name: 'React.js', Icon: Icons.React },
-      { name: 'Tailwind CSS', Icon: Icons.Tailwind },
-      { name: 'Redux', Icon: Icons.Redux },
-      { name: 'Framer Motion', Icon: Icons.NextJS },
-      { name: 'Next.js', Icon: Icons.NextJS },
-    ],
-  },
-  {
-    category: 'Backend',
-    catIcon: '⚙',
-    skills: [
-      { name: 'Node.js', Icon: Icons.NodeJS },
-      { name: 'Express.js', Icon: Icons.Express },
-      { name: 'REST APIs', Icon: Icons.NodeJS },
-      { name: 'JWT / OAuth', Icon: Icons.Git },
-      { name: 'GraphQL', Icon: Icons.GraphQL },
-    ],
-  },
-  {
-    category: 'Database & Tools',
-    catIcon: '⬡',
-    skills: [
-      { name: 'MongoDB', Icon: Icons.MongoDB },
-      { name: 'Git & GitHub', Icon: Icons.Git },
-      { name: 'Postman', Icon: Icons.Express },
-      { name: 'VS Code', Icon: Icons.TypeScript },
-      { name: 'Docker', Icon: Icons.Docker },
-    ],
-  },
-  {
-    category: 'Data Science',
-    catIcon: '∑',
-    skills: [
-      { name: 'NumPy', Icon: Icons.NumPy },
       { name: 'Pandas', Icon: Icons.Pandas },
+      { name: 'NumPy', Icon: Icons.NumPy },
       { name: 'Matplotlib', Icon: Icons.Matplotlib },
       { name: 'Seaborn', Icon: Icons.Seaborn },
+      { name: 'FastAPI', Icon: Icons.FastAPI },
+      { name: 'REST APIs', Icon: Icons.NodeJS },
+    ],
+  },
+  {
+    category: 'Machine Learning',
+    catIcon: '∑',
+    skills: [
+      { name: 'XGBoost', Icon: Icons.XGBoost },
+      { name: 'Feature Engineering', Icon: Icons.Pandas },
+      { name: 'EDA', Icon: Icons.Matplotlib },
+      { name: 'Hyperparameter Tuning', Icon: Icons.XGBoost },
+      { name: 'Recommender Systems', Icon: Icons.VectorSearch },
+    ],
+  },
+  {
+    category: 'AI & Generative AI',
+    catIcon: '◈',
+    skills: [
+      { name: 'Corrective RAG', Icon: Icons.RAG },
       { name: 'LangChain', Icon: Icons.LangChain },
-      { name: 'RAG', Icon: Icons.RAG },
+      { name: 'LangGraph', Icon: Icons.LangGraph },
+      { name: 'Vector Search', Icon: Icons.VectorSearch },
+      { name: 'Prompt Engineering', Icon: Icons.PromptEng },
+    ],
+  },
+  {
+    category: 'Backend, DB & Tools',
+    catIcon: '⬡',
+    skills: [
+      { name: 'Git & GitHub', Icon: Icons.Git },
+      { name: 'Docker', Icon: Icons.Docker },
+      { name: 'Streamlit', Icon: Icons.Streamlit },
+      { name: 'PostgreSQL', Icon: Icons.PostgreSQL },
+      { name: 'MongoDB', Icon: Icons.MongoDB },
+      { name: 'FAISS', Icon: Icons.FAISS },
+      { name: 'Node.js', Icon: Icons.NodeJS },
     ],
   },
 ];

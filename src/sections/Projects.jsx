@@ -3,36 +3,68 @@ import { motion, useInView, useScroll, useTransform } from 'framer-motion';
 
 const projects = [
   {
-    id: '01', title: 'Text-to-Learn', subtitle: 'AI-Powered Course Generator',
+    id: '01', title: 'UrjaSetu', subtitle: 'Solar Forecasting & Ice TES Platform',
+    description: 'Full-stack React-Node.js-FastAPI app for IIT Kharagpur\'s 5.5 MWp solar campus. Integrates XGBoost quantile models (P10/P50/P90), LSTM hourly profiles, ice TES sizing for 21 halls, and a Corrective RAG chatbot with DeepSeek LLM and vector search.',
+    tags: ['React', 'Node.js', 'FastAPI', 'XGBoost', 'LSTM', 'MongoDB', 'RAG'],
+    color: '#7b68ee', accent: '#00d4ff',
+    github: 'https://github.com/pavanjarpula/UrjaSetu',
+    metrics: ['16.1% MAPE', '0.71 R² Score', '25 Features'], year: '2026',
+  },
+  {
+    id: '02', title: 'Text-to-Learn', subtitle: 'AI-Powered Course Generator',
     description: 'Full-stack AI course builder that auto-generates 3–6 modules and 15+ lessons. Features polymorphic lesson rendering, OAuth 2.0 auth, multilingual audio, and PDF export.',
     tags: ['Node.js', 'React', 'MongoDB', 'OAuth 2.0', 'jsPDF'],
-    color: '#7b68ee', accent: '#00d4ff',
+    color: '#ff6b35', accent: '#ffd166',
     github: 'https://github.com/pavanjarpula',
     metrics: ['15+ Lessons/Course', 'OAuth 2.0 Auth', 'Multilingual'], year: '2025',
   },
   {
-    id: '02', title: "Rubik's Cube Solver", subtitle: 'Algorithmic Visualization Engine',
+    id: '03', title: 'Personalized Recommendation System', subtitle: 'Two-Stage LTR Engine',
+    description: 'Production-style recommender on MovieLens 1M with ALS candidate generation, LightGBM LambdaMART ranking, 75 engineered features, and FastAPI serving. Improved nDCG@10 from 0.242 to 0.367 (+51.7%).',
+    tags: ['Python', 'LightGBM', 'ALS', 'FastAPI', 'MLflow', 'Docker'],
+    color: '#00d4ff', accent: '#7b68ee',
+    github: 'https://github.com/pavanjarpula/Personalized-Candidate-Generation-Ranking-Engine',
+    metrics: ['nDCG@10: 0.367', '75 Features', 'FastAPI Serving'], year: '2026',
+  },
+  {
+    id: '04', title: 'C++ Concurrent HTTP Server', subtitle: 'From-Scratch Multithreaded Server',
+    description: 'HTTP/1.1 server built in C++17 with raw TCP sockets, fixed-size thread pool, bounded blocking queue, and real-time metrics dashboard. Handles backpressure with HTTP 503 and lock-free atomic counters.',
+    tags: ['C++17', 'TCP Sockets', 'Thread Pool', 'Docker', 'CMake'],
+    color: '#c8a96e', accent: '#ff6b35',
+    github: 'https://github.com/pavanjarpula/Multithreaded-HTTP-Server',
+    metrics: ['41 Tests Passing', 'Lock-Free Metrics', 'Docker Deployed'], year: '2025',
+  },
+  {
+    id: '05', title: "Rubik's Cube Solver", subtitle: 'Algorithmic Visualization Engine',
     description: "Virtual 3×3 Rubik's Cube with BFS, DFS, IDDFS and Korf's IDA* algorithms. Solves in under 4 seconds with nibble array memory optimization.",
     tags: ['C++', 'STL', 'IDA*', 'BFS', 'OOP'],
-    color: '#ff6b35', accent: '#ffd166',
+    color: '#e5c158', accent: '#ffd166',
     github: 'https://github.com/pavanjarpula',
     metrics: ['< 4s Solve Time', 'IDA* Algorithm', 'Memory Optimized'], year: '2025',
   },
   {
-    id: '03', title: 'Whiteboard App', subtitle: 'Collaborative Drawing Canvas',
+    id: '06', title: 'Whiteboard App', subtitle: 'Collaborative Drawing Canvas',
     description: 'React-based whiteboard with HTML5 Canvas featuring 5 drawing tools, custom color palette, brush sizes, and full undo/redo via React Context API.',
     tags: ['React', 'HTML5 Canvas', 'Tailwind CSS', 'Vercel'],
-    color: '#00d4ff', accent: '#7b68ee',
+    color: '#b08d2b', accent: '#7b68ee',
     github: 'https://github.com/pavanjarpula',
     metrics: ['5 Drawing Tools', 'Undo/Redo', 'On Vercel'], year: '2024',
   },
   {
-    id: '04', title: 'Email Scheduler', subtitle: 'Automated Communication Engine',
-    description: 'Python email scheduler automating 100+ emails/week with smtplib. Async threading and retry mechanisms reduced failures by 90%.',
-    tags: ['Python', 'smtplib', 'Threading', 'datetime'],
-    color: '#c8a96e', accent: '#ff6b35',
+    id: '07', title: 'Civic Services DBMS', subtitle: 'Full-Stack Panchayat Management',
+    description: 'Flask-PostgreSQL web app for managing civic services at the Panchayat level. 12 normalized tables, 38 REST endpoints, 4 user roles, 90 JavaScript functions across 22 HTML templates.',
+    tags: ['Flask', 'PostgreSQL', 'SQLAlchemy', 'HTML5', 'JavaScript'],
+    color: '#4faa41', accent: '#00d4ff',
+    github: 'https://github.com/pavanjarpula/Civic-Services-and-DataBase-Management-System',
+    metrics: ['38 API Endpoints', '12 DB Tables', '4 User Roles'], year: '2024',
+  },
+  {
+    id: '08', title: 'Inventory Management Platform', subtitle: 'AI-Powered Reordering System',
+    description: 'LangGraph agentic workflow with Prophet forecasting, FAISS RAG, and Groq LLM for ranked, context-aware inventory recommendations. Achieves 97% manual fill rate at 48% working capital.',
+    tags: ['Python', 'LangGraph', 'Prophet', 'FAISS', 'Groq', 'Twilio'],
+    color: '#4b9fd5', accent: '#ffd166',
     github: 'https://github.com/pavanjarpula',
-    metrics: ['100+ Emails/Week', '90% Fewer Failures', '2x Perf'], year: '2024',
+    metrics: ['97% Fill Rate', '48% Working Capital', 'LangSmith'], year: '2025',
   },
 ];
 
@@ -49,17 +81,24 @@ const projects = [
   To center cards [C, D] (positions 2,3) instead:
     x = 3vw - 2 * 48vw  =  3vw - 96vw  =  -93vw  (in pixels: -0.93 * vw)
 
-  ROW 1: [01][02][03][04]
+  ROW 1: [01][02][03][04][05][06][07][08]
     scroll=0 → x = +0.03vw  (01,02 centred)
+    scroll=1 → x = -0.93vw  (07,08 centred)   moves LEFT ←
+
+  ROW 2: [03][04][05][06][07][08][01][02]
+    scroll=0 → x = +0.03vw  (03,04 centred)
+    scroll=1 → x = -0.93vw  (01,02 centred)   moves LEFT ←
+
+  ROW 3: [05][06][07][08][01][02][03][04]
+    scroll=0 → x = +0.03vw  (05,06 centred)
     scroll=1 → x = -0.93vw  (03,04 centred)   moves LEFT ←
 
-  ROW 2: [03][04][01][02]
-    scroll=0 → x = +0.03vw  (03,04 centred, because they're at positions 0,1)
-    scroll=1 → x = -0.93vw  (01,02 centred)   also moves LEFT ←
-    BUT visually rows move OPPOSITE because they display different pairs at the same scroll position.
+  ROW 4: [07][08][01][02][03][04][05][06]
+    scroll=0 → x = +0.03vw  (07,08 centred)
+    scroll=1 → x = -0.93vw  (05,06 centred)   moves LEFT ←
 
-  At any scroll position both rows show DIFFERENT pairs → the 4 distinct projects are
-  always visible simultaneously (2 on top, 2 on bottom, all different).
+  All 8 projects visible at any scroll position (4 rows × 2 visible per row).
+  Rows move in alternating directions for visual dynamism.
 */
 
 function usePixelOffsets() {
@@ -153,14 +192,19 @@ export default function Projects() {
     offset: ['start center', 'end center'],
   });
 
-  // ROW 1: [01,02,03,04] — starts showing 01+02, scrolls left to 03+04
+  // ROW 1: [01,02,03,04,05,06,07,08] — starts showing 01+02, scrolls left to 07+08
   const xRow1 = useTransform(scrollYProgress, [0, 1], [start, end]);
-
-  // ROW 2: [03,04,01,02] — moves in OPPOSITE direction to row 1 (right while row 1 goes left)
+  // ROW 2: [03,04,05,06,07,08,01,02] — opposite direction
   const xRow2 = useTransform(scrollYProgress, [0, 1], [end, start]);
+  // ROW 3: [05,06,07,08,01,02,03,04] — same as row 1
+  const xRow3 = useTransform(scrollYProgress, [0, 1], [start, end]);
+  // ROW 4: [07,08,01,02,03,04,05,06] — opposite direction
+  const xRow4 = useTransform(scrollYProgress, [0, 1], [end, start]);
 
-  // Row 2 card order: 03, 04, 01, 02
-  const row2 = [projects[2], projects[3], projects[0], projects[1]];
+  // Row card orders
+  const row2 = [projects[2], projects[3], projects[4], projects[5], projects[6], projects[7], projects[0], projects[1]];
+  const row3 = [projects[4], projects[5], projects[6], projects[7], projects[0], projects[1], projects[2], projects[3]];
+  const row4 = [projects[6], projects[7], projects[0], projects[1], projects[2], projects[3], projects[4], projects[5]];
 
   return (
     <section id="projects" ref={sectionRef} style={{ padding: '80px 0', position: 'relative' }}>
@@ -198,14 +242,24 @@ export default function Projects() {
           background: 'linear-gradient(to right, var(--bg) 0%, transparent 6%, transparent 94%, var(--bg) 100%)',
         }} />
 
-        {/* ROW 1 — shows 01+02 at start, 03+04 at end */}
+        {/* ROW 1 */}
         <motion.div style={{ display: 'flex', gap: '2vw', x: xRow1, willChange: 'transform', marginBottom: '20px' }}>
           {projects.map((p, i) => <ProjectCard key={'r1-' + i} project={p} />)}
         </motion.div>
 
-        {/* ROW 2 — shows 03+04 at start, 01+02 at end (opposite of Row 1) */}
-        <motion.div style={{ display: 'flex', gap: '2vw', x: xRow2, willChange: 'transform' }}>
+        {/* ROW 2 — opposite direction */}
+        <motion.div style={{ display: 'flex', gap: '2vw', x: xRow2, willChange: 'transform', marginBottom: '20px' }}>
           {row2.map((p, i) => <ProjectCard key={'r2-' + i} project={p} />)}
+        </motion.div>
+
+        {/* ROW 3 — same direction as row 1 */}
+        <motion.div style={{ display: 'flex', gap: '2vw', x: xRow3, willChange: 'transform', marginBottom: '20px' }}>
+          {row3.map((p, i) => <ProjectCard key={'r3-' + i} project={p} />)}
+        </motion.div>
+
+        {/* ROW 4 — opposite direction */}
+        <motion.div style={{ display: 'flex', gap: '2vw', x: xRow4, willChange: 'transform' }}>
+          {row4.map((p, i) => <ProjectCard key={'r4-' + i} project={p} />)}
         </motion.div>
       </div>
 
@@ -219,8 +273,8 @@ export default function Projects() {
                 <motion.div key={i} style={{
                   height: '2px', width: '24px', borderRadius: '2px',
                   background: 'var(--accent)',
-                  opacity: useTransform(scrollYProgress, [i * 0.25, i * 0.25 + 0.25], [0.2, 1]),
-                  scaleX: useTransform(scrollYProgress, [i * 0.25, i * 0.25 + 0.25], [0.4, 1]),
+                  opacity: useTransform(scrollYProgress, [i * 0.125, i * 0.125 + 0.125], [0.2, 1]),
+                  scaleX: useTransform(scrollYProgress, [i * 0.125, i * 0.125 + 0.125], [0.4, 1]),
                   transformOrigin: 'left',
                 }} />
               ))}

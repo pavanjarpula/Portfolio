@@ -3,40 +3,52 @@ import { motion, useInView } from 'framer-motion';
 
 const achievements = [
   {
-    platform: 'LeetCode',
-    handle: 'pavankgpian',
-    stat: '1606+',
-    label: 'Top Rating',
-    description: 'Reached top contest rating on LeetCode, consistently solving hard algorithmic problems.',
-    color: '#d4af37',
-    glow: 'rgba(212, 175, 55, 0.15)',
-    icon: '⚡',
-    tag: 'Competitive',
-    link: 'https://leetcode.com/pavankgpian',
+    platform: 'Codeforces',
+    handle: 'pavanj123',
+    stat: '1481',
+    label: 'Specialist Rating',
+    description: 'Achieved Specialist rating on Codeforces — a popular competitive programming platform.',
+    color: '#e5c158',
+    glow: 'rgba(229, 193, 88, 0.15)',
+    icon: '◆',
+    tag: 'Rating',
+    link: 'https://codeforces.com/contests/with/pavanj123?type=all',
   },
   {
     platform: 'Codeforces',
     handle: 'pavanj123',
     stat: '#1005',
     label: 'Global Rank',
-    description: 'Secured global rank 1005 in Educational Codeforces Round 191 (Rated for Div. 2), solving 4 problems.',
+    description: 'Secured global rank 1005 in Educational Codeforces Round 191 (Rated for Div. 2), solving 4 problems — top 4% of 27,197 participants.',
     color: '#e5c158',
     glow: 'rgba(229, 193, 88, 0.15)',
     icon: '🏆',
-    tag: 'Global Rank',
+    tag: 'Top 4%',
     link: 'https://codeforces.com/contests/with/pavanj123?type=all',
   },
   {
     platform: 'Codeforces',
     handle: 'pavanj123',
-    stat: '1481',
-    label: 'Specialist Rating',
-    description: 'Achieved Specialist rating on Codeforces — a popular competitive programming platform.',
+    stat: '#1676',
+    label: 'Global Rank',
+    description: 'Secured global rank 1676 in Codeforces Round 1033 (Div. 2), placing among the top 6% of 28,431 participants.',
     color: '#b08d2b',
     glow: 'rgba(176, 141, 43, 0.15)',
     icon: '◆',
-    tag: 'Rating',
+    tag: 'Top 6%',
     link: 'https://codeforces.com/contests/with/pavanj123?type=all',
+  },
+  {
+    platform: 'LeetCode',
+    handle: 'pavankgpian',
+    stat: '1606+',
+    label: 'Top Rating',
+    description: 'Reached peak contest rating of 1606 on LeetCode, a globally recognized competitive programming platform.',
+    color: '#d4af37',
+    glow: 'rgba(212, 175, 55, 0.15)',
+    icon: '⚡',
+    tag: 'Competitive',
+    link: 'https://leetcode.com/pavankgpian',
   },
 ];
 
@@ -44,41 +56,32 @@ const certifications = [
   {
     title: 'AZ-201: Applied Algorithms & Data Structures',
     issuer: 'Algozenith',
-    period: 'Apr 2024 – Apr 2025',
-    description: '16-week intensive training in DSA — Graphs, Dynamic Programming, Binary Search, and Recursion.',
+    period: 'Apr 2024 – Jan 2025',
+    description: 'Completed Data Structures & Algorithms training covering Graphs, Trees, Binary Search, STL, Bit Manipulation and Dynamic Programming.',
     color: '#d4af37',
     glow: 'rgba(212, 175, 55, 0.15)',
     badge: 'DSA',
     link: 'https://drive.google.com/file/d/1ioTtL4Tg0XxfLuMDh3HO49AYsxDEKZKF/view?usp=drive_link',
   },
   {
-    title: 'Machine Learning Specialization',
-    issuer: 'Coursera / Andrew Ng',
+    title: 'Machine Learning by Andrew Ng',
+    issuer: 'Coursera',
     period: 'Dec 2023 – Feb 2024',
-    description: 'Mastered regression, neural networks, and clustering through projects and case studies.',
+    description: 'Completed Machine Learning course covering supervised and unsupervised learning, including regression, neural networks and clustering.',
     color: '#e5c158',
     glow: 'rgba(229, 193, 88, 0.15)',
     badge: 'ML',
     link: 'https://drive.google.com/file/d/1pjP2JvPkB2HZ8e1R_52F49wb_3pSiTVH/view?usp=drive_link',
   },
-  {
-    title: 'The Complete Python Developer',
-    issuer: 'Udemy / Andrei Neagoie',
-    period: 'Feb 2025',
-    description: 'Completed 31 hours of comprehensive Python training covering advanced concepts, OOP, and real-world projects.',
-    color: '#b08d2b',
-    glow: 'rgba(176, 141, 43, 0.15)',
-    badge: 'PY',
-    link: 'https://drive.google.com/file/d/1LVkXNCiGSh5aEaJutNu_ht8_BsEUPtI_/view?usp=drive_link',
-  },
 ];
 
 const education = [
   {
-    degree: 'Dual Degree — Mechanical Engineering',
+    degree: 'B.Tech (Hons.) + M.Tech Dual Degree',
     institution: 'IIT Kharagpur',
+    detail: 'Mechanical Engineering & Manufacturing Science',
     period: 'Nov 2022 – May 2027',
-    grade: 'CGPA: 8.23',
+    grade: 'CGPA: 7.22',
     current: true,
   },
   {
@@ -133,7 +136,7 @@ export default function Achievements() {
         </motion.div>
 
         {/* Competitive programming cards */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '20px', marginBottom: '64px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px', marginBottom: '64px' }}>
           {achievements.map((a, i) => (
             <motion.a
               key={i}
@@ -289,7 +292,8 @@ export default function Achievements() {
                         </div>
                       )}
                       <h4 style={{ fontSize: '16px', fontWeight: 500, color: 'var(--text)', lineHeight: 1.3, marginBottom: '6px' }}>{edu.degree}</h4>
-                      <div style={{ fontSize: '14px', color: 'var(--text-muted)', fontStyle: 'italic', marginBottom: '10px' }}>{edu.institution}</div>
+                      <div style={{ fontSize: '14px', color: 'var(--text-muted)', fontStyle: 'italic', marginBottom: '4px' }}>{edu.institution}</div>
+                      {edu.detail && <div style={{ fontSize: '13px', color: 'var(--text-subtle)', marginBottom: '10px' }}>{edu.detail}</div>}
                       <div style={{ display: 'flex', gap: '12px', fontSize: '12px', color: 'var(--text-subtle)', fontFamily: 'var(--font-mono)', alignItems: 'center' }}>
                         <span>{edu.period}</span>
                         <span>·</span>
