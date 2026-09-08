@@ -57,7 +57,7 @@ const certifications = [
     title: 'AZ-201: Applied Algorithms & Data Structures',
     issuer: 'Algozenith',
     period: 'Apr 2024 – Jan 2025',
-    description: 'Completed Data Structures & Algorithms training covering Graphs, Trees, Binary Search, STL, Bit Manipulation and Dynamic Programming.',
+    description: 'Graphs, Trees, Binary Search, STL, Bit Manipulation & Dynamic Programming.',
     color: '#d4af37',
     glow: 'rgba(212, 175, 55, 0.15)',
     badge: 'DSA',
@@ -67,11 +67,21 @@ const certifications = [
     title: 'Machine Learning by Andrew Ng',
     issuer: 'Coursera',
     period: 'Dec 2023 – Feb 2024',
-    description: 'Completed Machine Learning course covering supervised and unsupervised learning, including regression, neural networks and clustering.',
+    description: 'Supervised & unsupervised learning, regression, neural networks & clustering.',
     color: '#e5c158',
     glow: 'rgba(229, 193, 88, 0.15)',
     badge: 'ML',
     link: 'https://drive.google.com/file/d/1pjP2JvPkB2HZ8e1R_52F49wb_3pSiTVH/view?usp=drive_link',
+  },
+  {
+    title: 'Python Developer Certification',
+    issuer: 'HackerRank',
+    period: '2024',
+    description: 'Python fundamentals, data structures, OOP, error handling & file I/O.',
+    color: '#f39c12',
+    glow: 'rgba(243, 156, 18, 0.15)',
+    badge: 'Py',
+    link: 'https://www.hackerrank.com/certificates/7b0c8f1e1a2a',
   },
 ];
 
@@ -221,29 +231,29 @@ export default function Achievements() {
               Certifications
               <span style={{ flexGrow: 1, height: '1px', background: 'linear-gradient(90deg, var(--border), transparent)' }} />
             </div>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
               {certifications.map((cert, i) => (
                 <a
                   key={i} href={cert.link} target="_blank" rel="noopener noreferrer" data-hover
                   style={{
-                    textDecoration: 'none', padding: '24px', background: 'var(--surface)',
-                    border: '1px solid var(--border)', borderRadius: '8px',
+                    textDecoration: 'none', padding: '18px', background: 'var(--surface)',
+                    border: '1px solid var(--border)', borderRadius: '6px',
                     transition: 'all 0.3s', display: 'block', position: 'relative', overflow: 'hidden'
                   }}
                   onMouseEnter={e => { e.currentTarget.style.borderColor = cert.color + '50'; e.currentTarget.style.transform = 'translateX(8px)'; }}
                   onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--border)'; e.currentTarget.style.transform = 'translateX(0)'; }}
                 >
                   <div style={{ position: 'absolute', left: 0, top: 0, bottom: 0, width: '3px', background: cert.color, opacity: 0.8 }} />
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '12px' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
                     <div style={{
-                      padding: '4px 8px', background: cert.glow, borderRadius: '4px',
+                      padding: '2px 8px', background: cert.glow, borderRadius: '4px',
                       fontSize: '10px', fontWeight: 600, color: cert.color, fontFamily: 'var(--font-mono)',
                     }}>{cert.badge}</div>
                     <div style={{ fontSize: '11px', color: 'var(--text-subtle)', fontFamily: 'var(--font-mono)' }}>{cert.period}</div>
                   </div>
-                  <h4 style={{ fontSize: '16px', fontWeight: 500, color: 'var(--text)', marginBottom: '6px', lineHeight: 1.4 }}>{cert.title}</h4>
-                  <div style={{ fontSize: '13px', color: cert.color, marginBottom: '12px', fontWeight: 400, fontStyle: 'italic' }}>{cert.issuer}</div>
-                  <p style={{ fontSize: '13px', color: 'var(--text-muted)', lineHeight: 1.6, margin: 0, fontWeight: 300 }}>{cert.description}</p>
+                  <h4 style={{ fontSize: '14px', fontWeight: 500, color: 'var(--text)', marginBottom: '4px', lineHeight: 1.3 }}>{cert.title}</h4>
+                  <div style={{ fontSize: '12px', color: cert.color, marginBottom: '4px', fontWeight: 400, fontStyle: 'italic' }}>{cert.issuer}</div>
+                  <p style={{ fontSize: '12px', color: 'var(--text-muted)', lineHeight: 1.4, margin: 0, fontWeight: 300 }}>{cert.description}</p>
                 </a>
               ))}
             </div>

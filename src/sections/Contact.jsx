@@ -15,8 +15,8 @@ const socials = [
   },
   {
     label: 'LinkedIn',
-    value: 'linkedin.com/in/Jarpula-Pavan',
-    href: 'https://linkedin.com/in/Jarpula-Pavan',
+    value: 'linkedin.com/in/jarpula-pavan',
+    href: 'https://www.linkedin.com/in/jarpula-pavan-512ba5259/',
     icon: (
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
         <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/>

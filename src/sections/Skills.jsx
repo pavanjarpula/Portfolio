@@ -202,6 +202,24 @@ const Icons = {
       <path d="M4 20c2 3 8 4 14 2s10-6 10-6" stroke="#2496ed" strokeWidth="1.5" opacity="0.5"/>
     </svg>
   ),
+  Sklearn: () => (
+    <svg viewBox="0 0 32 32" width="18" height="18" fill="none">
+      <rect width="32" height="32" rx="3" fill="#f39c12" opacity="0.15"/>
+      <text x="16" y="21" textAnchor="middle" fontSize="7" fontWeight="700" fill="#f39c12" fontFamily="monospace">sk</text>
+    </svg>
+  ),
+  Bagging: () => (
+    <svg viewBox="0 0 32 32" width="18" height="18" fill="none">
+      <rect width="32" height="32" rx="3" fill="#9b59b6" opacity="0.15"/>
+      <text x="16" y="21" textAnchor="middle" fontSize="7" fontWeight="700" fill="#9b59b6" fontFamily="monospace">BG</text>
+    </svg>
+  ),
+  Boosting: () => (
+    <svg viewBox="0 0 32 32" width="18" height="18" fill="none">
+      <rect width="32" height="32" rx="3" fill="#e74c3c" opacity="0.15"/>
+      <text x="16" y="21" textAnchor="middle" fontSize="7" fontWeight="700" fill="#e74c3c" fontFamily="monospace">BT</text>
+    </svg>
+  ),
   Streamlit: () => (
     <svg viewBox="0 0 32 32" width="18" height="18" fill="none">
       <rect width="32" height="32" rx="3" fill="#ff4f4f" opacity="0.15"/>
@@ -266,24 +284,15 @@ const skillGroups = [
     ],
   },
   {
-    category: 'Data Science',
+    category: 'Data Science & ML',
     catIcon: '∑',
     skills: [
       { name: 'Pandas', Icon: Icons.Pandas },
       { name: 'NumPy', Icon: Icons.NumPy },
       { name: 'Matplotlib', Icon: Icons.Matplotlib },
-      { name: 'Seaborn', Icon: Icons.Seaborn },
-    ],
-  },
-  {
-    category: 'Machine Learning',
-    catIcon: '◆',
-    skills: [
+      { name: 'Scikit-Learn', Icon: Icons.Sklearn },
       { name: 'XGBoost', Icon: Icons.XGBoost },
-      { name: 'Feature Engineering', Icon: Icons.Pandas },
-      { name: 'EDA', Icon: Icons.Matplotlib },
-      { name: 'Hyperparameter Tuning', Icon: Icons.XGBoost },
-      { name: 'Recommender Systems', Icon: Icons.VectorSearch },
+      { name: 'Bagging & Boosting', Icon: Icons.Bagging },
     ],
   },
   {
@@ -327,8 +336,6 @@ function SkillCard({ group, index }) {
         padding: '28px',
         position: 'relative',
         transition: 'border-color 0.3s',
-        flex: '1 1 160px',
-        minWidth: '0',
       }}
       whileHover={{ borderColor: 'var(--accent)' }}
     >
@@ -403,8 +410,8 @@ export default function Skills() {
         </motion.div>
 
         <div style={{
-          display: 'flex',
-          flexWrap: 'wrap',
+          display: 'grid',
+          gridTemplateColumns: 'repeat(4, 1fr)',
           gap: '16px',
         }}>
           {skillGroups.map((group, i) => (
