@@ -11,15 +11,6 @@ const item = {
   show: { opacity: 1, y: 0, transition: { duration: 0.9, ease: [0.22, 1, 0.36, 1] } }
 };
 
-const heroSkills = [
-  { name: 'React', color: '#61dafb' },
-  { name: 'Python', color: '#4b9fd5' },
-  { name: 'Node.js', color: '#68a063' },
-  { name: 'C++', color: '#00599C' },
-  { name: 'FastAPI', color: '#009688' },
-  { name: 'ML', color: '#d4af37' },
-];
-
 export default function Hero() {
   const containerRef = useRef(null);
 
@@ -279,45 +270,6 @@ export default function Hero() {
               </div>
             </div>
 
-            {/* Skills bar under photo */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.2, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-              style={{
-                marginTop: '24px',
-                display: 'flex',
-                gap: '12px',
-                flexWrap: 'wrap',
-                justifyContent: 'center',
-              }}
-            >
-              {heroSkills.map((skill, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 1.4 + i * 0.1, duration: 0.5 }}
-                  style={{
-                    padding: '5px 14px',
-                    background: 'var(--surface)',
-                    border: '1px solid var(--border)',
-                    borderRadius: '100px',
-                    fontSize: '11px',
-                    fontFamily: 'var(--font-mono)',
-                    color: skill.color,
-                    fontWeight: 500,
-                    letterSpacing: '0.02em',
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '6px',
-                  }}
-                >
-                  <span style={{ width: '5px', height: '5px', borderRadius: '50%', background: skill.color, opacity: 0.7 }} />
-                  {skill.name}
-                </motion.div>
-              ))}
-            </motion.div>
           </motion.div>
         </div>
       </div>

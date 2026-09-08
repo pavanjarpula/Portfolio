@@ -1,7 +1,7 @@
 export default function Marquee() {
-  const items = ['React', 'Node.js', 'C++', 'Python', 'JavaScript', 'MongoDB', 'Express', 'Three.js', 'Tailwind CSS', 'REST APIs', 'Redux', 'GSAP'];
-  const items2 = ['DSA', 'Full Stack', 'WebGL', 'Git', 'Algorithms', 'System Design', 'OAuth 2.0', 'JWT', 'Framer Motion', 'Competitive Programming'];
-  
+  const items = ['LangChain', 'RAG', 'Vector DB', 'MCP', 'Weaviate', 'Docker', 'XGBoost', 'Streamlit', 'Vite', 'TypeScript', 'FastAPI', 'MLflow'];
+  const items2 = ['Auth0', 'JWT', 'OAuth 2.0', 'LangGraph', 'FAISS', 'CLion', 'Jupyter', 'Tailwind CSS', 'Framer Motion', 'Prophet', 'Next.js', 'Supabase'];
+
   const Row = ({ list, reverse, speed }) => (
     <div style={{ display: 'flex', overflow: 'hidden', padding: '12px 0' }}>
       <div style={{
@@ -28,7 +28,7 @@ export default function Marquee() {
     <div style={{
       borderTop: '1px solid var(--border)',
       borderBottom: '1px solid var(--border)',
-      background: 'rgba(123,104,238,0.02)',
+      background: 'rgba(212,175,55,0.02)',
       padding: '4px 0',
       overflow: 'hidden',
     }}>
