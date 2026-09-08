@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
-const links = ['About', 'Experience', 'Skills', 'Projects', 'Blog', 'Achievements', 'Contact'];
+const links = ['About', 'Experience', 'Skills', 'Projects', 'Achievements', 'Contact'];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);

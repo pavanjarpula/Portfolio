@@ -268,6 +268,36 @@ const Icons = {
       <text x="16" y="21" textAnchor="middle" fontSize="8" fontWeight="700" fill="#e34f26" fontFamily="monospace">H5</text>
     </svg>
   ),
+  JWT: () => (
+    <svg viewBox="0 0 32 32" width="18" height="18" fill="none">
+      <rect width="32" height="32" rx="3" fill="#00b9f1" opacity="0.15"/>
+      <text x="16" y="21" textAnchor="middle" fontSize="8" fontWeight="700" fill="#00b9f1" fontFamily="monospace">JT</text>
+    </svg>
+  ),
+  Auth0: () => (
+    <svg viewBox="0 0 32 32" width="18" height="18" fill="none">
+      <circle cx="16" cy="16" r="12" stroke="#eb5424" strokeWidth="2" fill="none" opacity="0.6"/>
+      <circle cx="16" cy="16" r="4" fill="#eb5424" opacity="0.6"/>
+    </svg>
+  ),
+  OAuth: () => (
+    <svg viewBox="0 0 32 32" width="18" height="18" fill="none">
+      <rect width="32" height="32" rx="3" fill="#4a90d9" opacity="0.15"/>
+      <text x="16" y="21" textAnchor="middle" fontSize="8" fontWeight="700" fill="#4a90d9" fontFamily="monospace">OA</text>
+    </svg>
+  ),
+  HTTPS: () => (
+    <svg viewBox="0 0 32 32" width="18" height="18" fill="none">
+      <rect x="8" y="14" width="16" height="12" rx="2" stroke="#4caf50" strokeWidth="1.5" fill="none" opacity="0.6"/>
+      <path d="M12 14V10a4 4 0 018 0v4" stroke="#4caf50" strokeWidth="1.5" fill="none" opacity="0.6"/>
+    </svg>
+  ),
+  CORS: () => (
+    <svg viewBox="0 0 32 32" width="18" height="18" fill="none">
+      <rect width="32" height="32" rx="3" fill="#ff6f61" opacity="0.15"/>
+      <text x="16" y="21" textAnchor="middle" fontSize="8" fontWeight="700" fill="#ff6f61" fontFamily="monospace">CR</text>
+    </svg>
+  ),
 };
 
 const skillGroups = [
@@ -351,6 +381,18 @@ const skillGroups = [
       { name: 'MLflow', Icon: Icons.MLflow },
       { name: 'CLion', Icon: Icons.CLion },
       { name: 'Jupyter Notebook', Icon: Icons.Jupyter },
+    ],
+  },
+  {
+    category: 'Security & Auth',
+    catIcon: '🔒',
+    skills: [
+      { name: 'JWT', Icon: Icons.JWT },
+      { name: 'Auth0', Icon: Icons.Auth0 },
+      { name: 'OAuth 2.0', Icon: Icons.OAuth },
+      { name: 'HTTPS / TLS', Icon: Icons.HTTPS },
+      { name: 'CORS', Icon: Icons.CORS },
+      { name: 'Session Management', Icon: Icons.JWT },
     ],
   },
 ];
