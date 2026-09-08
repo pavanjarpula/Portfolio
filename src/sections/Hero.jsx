@@ -314,47 +314,29 @@ export default function Hero() {
                   background: 'radial-gradient(ellipse at center, transparent 50%, rgba(3,3,3,0.4) 100%)',
                   pointerEvents: 'none',
                 }} />
-                {/* Name tag + status */}
+                {/* Name tag */}
                 <div style={{
-                  position: 'absolute', bottom: '16px', left: '16px', right: '16px',
-                  zIndex: 2, display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end',
+                  position: 'absolute', bottom: '16px', left: '16px',
+                  zIndex: 2,
                 }}>
-                  <div>
-                    <div style={{
-                      fontFamily: 'var(--font-mono)', fontSize: '10px',
-                      color: 'var(--accent)', letterSpacing: '0.2em',
-                      textTransform: 'uppercase', marginBottom: '4px',
-                      opacity: 0.9,
-                    }}>
-                      Jarpula Pavan
-                    </div>
-                    <div style={{
-                      fontFamily: 'var(--font-mono)', fontSize: '9px',
-                      color: 'var(--text-subtle)', letterSpacing: '0.1em',
-                    }}>
-                      IIT Kharagpur
-                    </div>
-                    <div style={{
-                      width: '24px', height: '1px',
-                      background: 'var(--accent)', opacity: 0.5, marginTop: '6px',
-                    }} />
+                  <div style={{
+                    fontFamily: 'var(--font-mono)', fontSize: '10px',
+                    color: 'var(--accent)', letterSpacing: '0.2em',
+                    textTransform: 'uppercase', marginBottom: '4px',
+                    opacity: 0.9,
+                  }}>
+                    Jarpula Pavan
                   </div>
-                  <motion.div
-                    animate={{ opacity: [0.6, 1, 0.6] }}
-                    transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-                    style={{
-                      display: 'flex', alignItems: 'center', gap: '5px',
-                      padding: '4px 10px',
-                      background: 'rgba(212,175,55,0.1)',
-                      border: '1px solid rgba(212,175,55,0.25)',
-                      borderRadius: '100px',
-                    }}
-                  >
-                    <div style={{ width: '5px', height: '5px', borderRadius: '50%', background: '#4ade80' }} />
-                    <span style={{ fontFamily: 'var(--font-mono)', fontSize: '8px', color: 'var(--accent)', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
-                      Open to work
-                    </span>
-                  </motion.div>
+                  <div style={{
+                    fontFamily: 'var(--font-mono)', fontSize: '9px',
+                    color: 'var(--text-subtle)', letterSpacing: '0.1em',
+                  }}>
+                    IIT Kharagpur
+                  </div>
+                  <div style={{
+                    width: '24px', height: '1px',
+                    background: 'var(--accent)', opacity: 0.5, marginTop: '6px',
+                  }} />
                 </div>
               </div>
             </div>
