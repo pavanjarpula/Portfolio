@@ -298,6 +298,57 @@ const Icons = {
       <text x="16" y="21" textAnchor="middle" fontSize="8" fontWeight="700" fill="#ff6f61" fontFamily="monospace">CR</text>
     </svg>
   ),
+  OOPs: () => (
+    <svg viewBox="0 0 32 32" width="18" height="18" fill="none">
+      <circle cx="10" cy="10" r="4" stroke="#d4af37" strokeWidth="1.5" fill="none" opacity="0.7"/>
+      <circle cx="22" cy="10" r="4" stroke="#d4af37" strokeWidth="1.5" fill="none" opacity="0.7"/>
+      <circle cx="16" cy="22" r="4" stroke="#d4af37" strokeWidth="1.5" fill="none" opacity="0.7"/>
+      <path d="M10 14v4l6 4M22 14v4l-6 4" stroke="#d4af37" strokeWidth="1" opacity="0.5"/>
+    </svg>
+  ),
+  DBMS: () => (
+    <svg viewBox="0 0 32 32" width="18" height="18" fill="none">
+      <ellipse cx="16" cy="10" rx="10" ry="4" stroke="#e5c158" strokeWidth="1.5" fill="none" opacity="0.7"/>
+      <path d="M6 10v12c0 2.2 4.5 4 10 4s10-1.8 10-4V10" stroke="#e5c158" strokeWidth="1.5" fill="none" opacity="0.5"/>
+      <path d="M6 16c0 2.2 4.5 4 10 4s10-1.8 10-4" stroke="#e5c158" strokeWidth="1" fill="none" opacity="0.4"/>
+    </svg>
+  ),
+  OS: () => (
+    <svg viewBox="0 0 32 32" width="18" height="18" fill="none">
+      <rect width="32" height="32" rx="3" fill="#b08d2b" opacity="0.15"/>
+      <text x="16" y="21" textAnchor="middle" fontSize="8" fontWeight="700" fill="#b08d2b" fontFamily="monospace">OS</text>
+    </svg>
+  ),
+  Networks: () => (
+    <svg viewBox="0 0 32 32" width="18" height="18" fill="none">
+      <circle cx="8" cy="8" r="3" stroke="#c8a96e" strokeWidth="1.5" fill="none" opacity="0.7"/>
+      <circle cx="24" cy="8" r="3" stroke="#c8a96e" strokeWidth="1.5" fill="none" opacity="0.7"/>
+      <circle cx="16" cy="24" r="3" stroke="#c8a96e" strokeWidth="1.5" fill="none" opacity="0.7"/>
+      <path d="M11 8h10M8 11l6 10M24 11l-6 10" stroke="#c8a96e" strokeWidth="1.2" opacity="0.5"/>
+    </svg>
+  ),
+  DSA: () => (
+    <svg viewBox="0 0 32 32" width="18" height="18" fill="none">
+      <rect width="32" height="32" rx="3" fill="#d4af37" opacity="0.15"/>
+      <text x="16" y="21" textAnchor="middle" fontSize="8" fontWeight="700" fill="#d4af37" fontFamily="monospace">DS</text>
+    </svg>
+  ),
+  DL: () => (
+    <svg viewBox="0 0 32 32" width="18" height="18" fill="none">
+      <circle cx="8" cy="10" r="3" stroke="#a3863a" strokeWidth="1.2" fill="none" opacity="0.7"/>
+      <circle cx="16" cy="10" r="3" stroke="#a3863a" strokeWidth="1.2" fill="none" opacity="0.7"/>
+      <circle cx="24" cy="10" r="3" stroke="#a3863a" strokeWidth="1.2" fill="none" opacity="0.7"/>
+      <circle cx="12" cy="22" r="3" stroke="#a3863a" strokeWidth="1.2" fill="none" opacity="0.7"/>
+      <circle cx="20" cy="22" r="3" stroke="#a3863a" strokeWidth="1.2" fill="none" opacity="0.7"/>
+      <path d="M8 13l4 6M16 13v6M24 13l-4 6" stroke="#a3863a" strokeWidth="1" opacity="0.5"/>
+    </svg>
+  ),
+  CP: () => (
+    <svg viewBox="0 0 32 32" width="18" height="18" fill="none">
+      <rect width="32" height="32" rx="3" fill="#e5c158" opacity="0.15"/>
+      <text x="16" y="21" textAnchor="middle" fontSize="8" fontWeight="700" fill="#e5c158" fontFamily="monospace">CP</text>
+    </svg>
+  ),
 };
 
 const skillGroups = [
@@ -334,6 +385,12 @@ const skillGroups = [
       { name: 'Express.js', Icon: Icons.Express },
       { name: 'FastAPI', Icon: Icons.FastAPI },
       { name: 'REST APIs', Icon: Icons.NodeJS },
+      { name: 'JWT', Icon: Icons.JWT },
+      { name: 'OAuth 2.0', Icon: Icons.OAuth },
+      { name: 'Auth0', Icon: Icons.Auth0 },
+      { name: 'HTTPS / TLS', Icon: Icons.HTTPS },
+      { name: 'CORS', Icon: Icons.CORS },
+      { name: 'Session Mgmt', Icon: Icons.JWT },
     ],
   },
   {
@@ -384,15 +441,17 @@ const skillGroups = [
     ],
   },
   {
-    category: 'Security & Auth',
-    catIcon: '🔒',
+    category: 'Core CS',
+    catIcon: '📐',
     skills: [
-      { name: 'JWT', Icon: Icons.JWT },
-      { name: 'Auth0', Icon: Icons.Auth0 },
-      { name: 'OAuth 2.0', Icon: Icons.OAuth },
-      { name: 'HTTPS / TLS', Icon: Icons.HTTPS },
-      { name: 'CORS', Icon: Icons.CORS },
-      { name: 'Session Management', Icon: Icons.JWT },
+      { name: 'DSA', Icon: Icons.DSA },
+      { name: 'OOPs', Icon: Icons.OOPs },
+      { name: 'DBMS', Icon: Icons.DBMS },
+      { name: 'OS', Icon: Icons.OS },
+      { name: 'Computer Networks', Icon: Icons.Networks },
+      { name: 'Machine Learning', Icon: Icons.Sklearn },
+      { name: 'Deep Learning', Icon: Icons.DL },
+      { name: 'Competitive Programming', Icon: Icons.CP },
     ],
   },
 ];

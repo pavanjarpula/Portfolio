@@ -231,22 +231,22 @@ export default function Hero() {
                   style={{
                     width: '100%', height: '100%', objectFit: 'cover',
                     objectPosition: 'center top',
-                    filter: 'grayscale(30%) contrast(1.1) brightness(0.95) saturate(0.9)',
+                    filter: 'grayscale(20%) contrast(1.1) brightness(0.95) saturate(0.85) sepia(15%)',
                     transition: 'filter 0.6s',
                   }}
-                  onMouseEnter={e => e.currentTarget.style.filter = 'grayscale(0%) contrast(1.05) brightness(1) saturate(1.1)'}
-                  onMouseLeave={e => e.currentTarget.style.filter = 'grayscale(30%) contrast(1.1) brightness(0.95) saturate(0.9)'}
+                  onMouseEnter={e => e.currentTarget.style.filter = 'grayscale(0%) contrast(1.05) brightness(1) saturate(1.1) sepia(0%)'}
+                  onMouseLeave={e => e.currentTarget.style.filter = 'grayscale(20%) contrast(1.1) brightness(0.95) saturate(0.85) sepia(15%)'}
                 />
                 {/* Dark gradient overlay */}
                 <div style={{
                   position: 'absolute', inset: 0,
-                  background: 'linear-gradient(to top, rgba(3,3,3,0.7) 0%, transparent 50%)',
+                  background: 'linear-gradient(to top, rgba(3,3,3,0.75) 0%, transparent 50%)',
                   pointerEvents: 'none'
                 }} />
-                {/* Gold shimmer overlay */}
+                {/* Gold tone overlay */}
                 <div style={{
                   position: 'absolute', inset: 0,
-                  background: 'linear-gradient(135deg, rgba(212,175,55,0.06) 0%, transparent 50%)',
+                  background: 'linear-gradient(135deg, rgba(212,175,55,0.1) 0%, rgba(176,141,43,0.05) 50%, transparent 100%)',
                   pointerEvents: 'none',
                 }} />
                 {/* Name tag */}

@@ -13,7 +13,7 @@ const fadeUp = {
 const stats = [
   { value: '3+', label: 'Years Coding' },
   { value: '10+', label: 'Projects Built' },
-  { value: '5+', label: 'Technologies' },
+  { value: '40+', label: 'Technologies' },
 ];
 
 export default function About() {
