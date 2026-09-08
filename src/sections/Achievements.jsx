@@ -75,13 +75,13 @@ const certifications = [
   },
   {
     title: 'Python Developer Certification',
-    issuer: 'HackerRank',
+    issuer: 'Udemy',
     period: '2024',
     description: 'Python fundamentals, data structures, OOP, error handling & file I/O.',
     color: '#f39c12',
     glow: 'rgba(243, 156, 18, 0.15)',
     badge: 'Py',
-    link: 'https://www.hackerrank.com/certificates/7b0c8f1e1a2a',
+    link: 'https://drive.google.com/file/d/1LVkXNCiGSh5aEaJutNu_ht8_BsEUPtI_/view?usp=sharing',
   },
 ];
 
