@@ -51,22 +51,36 @@ export default function Contact() {
   const inView = useInView(ref, { once: true, margin: '-80px' });
   const [hoveredIdx, setHoveredIdx] = useState(null);
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
-  const [status, setStatus] = useState('idle'); // idle | sending | sent | error
+  const [status, setStatus] = useState('idle');
 
-  const handleSend = async () => {
+  const handleSend = async (e) => {
+    e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) return;
     setStatus('sending');
-    // Open mailto with prefilled content
-    const subject = encodeURIComponent(`Portfolio Contact from ${formData.name}`);
-    const body = encodeURIComponent(
-      `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
-    );
-    window.location.href = `mailto:mepavaniitkgp@gmail.com?subject=${subject}&body=${body}`;
-    setTimeout(() => {
-      setStatus('sent');
-      setFormData({ name: '', email: '', message: '' });
-      setTimeout(() => setStatus('idle'), 4000);
-    }, 800);
+
+    try {
+      const response = await fetch('https://formsubmit.co/ajax/mepavaniitkgp@gmail.com', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          _subject: `Portfolio Contact from ${formData.name}`,
+        }),
+      });
+
+      if (response.ok) {
+        setStatus('sent');
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        setStatus('error');
+      }
+    } catch {
+      setStatus('error');
+    }
+
+    setTimeout(() => setStatus('idle'), 4000);
   };
 
   return (
@@ -95,7 +109,8 @@ export default function Contact() {
         </motion.div>
 
         {/* Contact Form */}
-        <motion.div
+        <motion.form
+          onSubmit={handleSend}
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
@@ -115,9 +130,11 @@ export default function Contact() {
               </label>
               <input
                 type="text"
+                name="name"
                 value={formData.name}
                 onChange={e => setFormData(p => ({ ...p, name: e.target.value }))}
                 placeholder="Your name"
+                required
                 style={{
                   width: '100%', padding: '12px 16px',
                   background: 'var(--bg)', border: '1px solid var(--border)',
@@ -136,9 +153,11 @@ export default function Contact() {
               </label>
               <input
                 type="email"
+                name="email"
                 value={formData.email}
                 onChange={e => setFormData(p => ({ ...p, email: e.target.value }))}
                 placeholder="your@email.com"
+                required
                 style={{
                   width: '100%', padding: '12px 16px',
                   background: 'var(--bg)', border: '1px solid var(--border)',
@@ -157,10 +176,12 @@ export default function Contact() {
               Message
             </label>
             <textarea
+              name="message"
               value={formData.message}
               onChange={e => setFormData(p => ({ ...p, message: e.target.value }))}
               placeholder="Tell me about your project or opportunity..."
               rows={5}
+              required
               style={{
                 width: '100%', padding: '12px 16px',
                 background: 'var(--bg)', border: '1px solid var(--border)',
@@ -175,15 +196,15 @@ export default function Contact() {
             />
           </div>
           <button
+            type="submit"
             data-hover
-            onClick={handleSend}
             disabled={status === 'sending'}
             style={{
               width: '100%',
               padding: '16px 32px',
-              background: status === 'sent' ? 'rgba(212,175,55,0.15)' : 'var(--text)',
-              border: status === 'sent' ? '1px solid var(--accent)' : '1px solid var(--text)',
-              color: status === 'sent' ? 'var(--accent)' : 'var(--bg)',
+              background: status === 'sent' ? 'rgba(76,175,80,0.15)' : status === 'error' ? 'rgba(244,67,54,0.15)' : 'var(--text)',
+              border: status === 'sent' ? '1px solid #4CAF50' : status === 'error' ? '1px solid #f44336' : '1px solid var(--text)',
+              color: status === 'sent' ? '#4CAF50' : status === 'error' ? '#f44336' : 'var(--bg)',
               fontFamily: 'var(--font-body)',
               fontSize: '13px', fontWeight: 600,
               letterSpacing: '0.08em', textTransform: 'uppercase',
@@ -191,8 +212,8 @@ export default function Contact() {
               transition: 'all 0.3s',
               display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px',
             }}
-            onMouseEnter={e => { if (status !== 'sent') { e.currentTarget.style.background = 'var(--accent)'; e.currentTarget.style.borderColor = 'var(--accent)'; e.currentTarget.style.color = 'var(--bg)'; } }}
-            onMouseLeave={e => { if (status !== 'sent') { e.currentTarget.style.background = 'var(--text)'; e.currentTarget.style.borderColor = 'var(--text)'; e.currentTarget.style.color = 'var(--bg)'; } }}
+            onMouseEnter={e => { if (status === 'idle') { e.currentTarget.style.background = 'var(--accent)'; e.currentTarget.style.borderColor = 'var(--accent)'; e.currentTarget.style.color = 'var(--bg)'; } }}
+            onMouseLeave={e => { if (status === 'idle') { e.currentTarget.style.background = 'var(--text)'; e.currentTarget.style.borderColor = 'var(--text)'; e.currentTarget.style.color = 'var(--bg)'; } }}
           >
             {status === 'sending' ? (
               <>
@@ -204,6 +225,11 @@ export default function Contact() {
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="20 6 9 17 4 12"/></svg>
                 Message Sent!
               </>
+            ) : status === 'error' ? (
+              <>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+                Failed — Try Again
+              </>
             ) : (
               <>
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
@@ -211,7 +237,7 @@ export default function Contact() {
               </>
             )}
           </button>
-        </motion.div>
+        </motion.form>
 
         {/* Social Links */}
         <div style={{
