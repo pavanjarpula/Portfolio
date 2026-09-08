@@ -8,6 +8,12 @@ const Icons = {
       <text x="16" y="21" textAnchor="middle" fontSize="14" fontWeight="700" fill="#659ad2" fontFamily="monospace">C</text>
     </svg>
   ),
+  Cpp: () => (
+    <svg viewBox="0 0 32 32" width="18" height="18" fill="none">
+      <circle cx="16" cy="16" r="14" fill="#00599C" opacity="0.15"/>
+      <text x="16" y="21" textAnchor="middle" fontSize="10" fontWeight="700" fill="#00599C" fontFamily="monospace">C++</text>
+    </svg>
+  ),
   JavaScript: () => (
     <svg viewBox="0 0 32 32" width="18" height="18">
       <rect width="32" height="32" rx="3" fill="#f7df1e" opacity="0.15"/>
@@ -40,10 +46,23 @@ const Icons = {
       <ellipse cx="16" cy="16" rx="14" ry="5.5" stroke="#61dafb" strokeWidth="1.5" fill="none" opacity="0.5" transform="rotate(120 16 16)"/>
     </svg>
   ),
+  Vite: () => (
+    <svg viewBox="0 0 32 32" width="18" height="18" fill="none">
+      <path d="M27 7L17 26l-3-9L5 15z" fill="#646CFF" opacity="0.15"/>
+      <path d="M5 15l7-3 3 9L27 7" stroke="#646CFF" strokeWidth="1.5" fill="none" opacity="0.7"/>
+      <text x="16" y="28" textAnchor="middle" fontSize="7" fontWeight="700" fill="#646CFF" fontFamily="monospace" opacity="0.6">Vite</text>
+    </svg>
+  ),
   Tailwind: () => (
     <svg viewBox="0 0 32 32" width="18" height="18" fill="none">
       <path d="M8 13c1-4 3.5-6 7-5 3.5 1 4.5 4 6 5 1.5 1 3.5.5 5-1-1 4-3.5 6-7 5-3.5-1-4.5-4-6-5-1.5-1-3.5-.5-5 1z" fill="#38bdf8" opacity="0.8"/>
       <path d="M3 19c1-4 3.5-6 7-5 3.5 1 4.5 4 6 5 1.5 1 3.5.5 5-1-1 4-3.5 6-7 5-3.5-1-4.5-4-6-5-1.5-1-3.5-.5-5 1z" fill="#38bdf8" opacity="0.4"/>
+    </svg>
+  ),
+  FramerMotion: () => (
+    <svg viewBox="0 0 32 32" width="18" height="18" fill="none">
+      <rect width="32" height="32" rx="3" fill="#e5e5e5" opacity="0.1"/>
+      <text x="16" y="21" textAnchor="middle" fontSize="8" fontWeight="700" fill="#e5e5e5" fontFamily="monospace" opacity="0.7">FM</text>
     </svg>
   ),
   NodeJS: () => (
@@ -53,8 +72,9 @@ const Icons = {
     </svg>
   ),
   Express: () => (
-    <svg viewBox="0 0 32 32" width="18" height="18">
-      <text x="4" y="20" fontSize="10" fontWeight="700" fill="#e5e5e5" fontFamily="monospace" opacity="0.6">exp</text>
+    <svg viewBox="0 0 32 32" width="18" height="18" fill="none">
+      <rect width="32" height="32" rx="3" fill="#e5e5e5" opacity="0.08"/>
+      <text x="16" y="21" textAnchor="middle" fontSize="8" fontWeight="700" fill="#e5e5e5" fontFamily="monospace" opacity="0.7">Exp</text>
     </svg>
   ),
   FastAPI: () => (
@@ -75,18 +95,16 @@ const Icons = {
       <text x="16" y="21" textAnchor="middle" fontSize="7" fontWeight="700" fill="#336791" fontFamily="monospace">PG</text>
     </svg>
   ),
-  Git: () => (
+  FAISS: () => (
     <svg viewBox="0 0 32 32" width="18" height="18" fill="none">
-      <path d="M28 14.7L17.3 4a1.3 1.3 0 00-1.9 0L13 6.4l2.4 2.4a1.6 1.6 0 012 2l2.3 2.3a1.6 1.6 0 11-1 1l-2.1-2.1v5.5a1.6 1.6 0 11-1.3 0V12a1.6 1.6 0 01-.9-2.1L12.2 7.7 4 15.9a1.3 1.3 0 000 1.9L14.7 28a1.3 1.3 0 001.9 0L28 16.6a1.3 1.3 0 000-1.9z" fill="#f05133" opacity="0.7"/>
+      <rect width="32" height="32" rx="3" fill="#068cd1" opacity="0.15"/>
+      <text x="16" y="21" textAnchor="middle" fontSize="8" fontWeight="700" fill="#068cd1" fontFamily="monospace">F</text>
     </svg>
   ),
-  Docker: () => (
+  Weaviate: () => (
     <svg viewBox="0 0 32 32" width="18" height="18" fill="none">
-      <rect x="4" y="12" width="5" height="4" rx="1" fill="#2496ed" opacity="0.7"/>
-      <rect x="11" y="12" width="5" height="4" rx="1" fill="#2496ed" opacity="0.7"/>
-      <rect x="18" y="12" width="5" height="4" rx="1" fill="#2496ed" opacity="0.7"/>
-      <rect x="11" y="7" width="5" height="4" rx="1" fill="#2496ed" opacity="0.5"/>
-      <path d="M4 20c2 3 8 4 14 2s10-6 10-6" stroke="#2496ed" strokeWidth="1.5" opacity="0.5"/>
+      <rect width="32" height="32" rx="3" fill="#00c4b3" opacity="0.15"/>
+      <text x="16" y="21" textAnchor="middle" fontSize="7" fontWeight="700" fill="#00c4b3" fontFamily="monospace">W</text>
     </svg>
   ),
   NumPy: () => (
@@ -120,6 +138,12 @@ const Icons = {
       <circle cx="19" cy="11" r="2" fill="#c4ad66" opacity="0.7"/>
     </svg>
   ),
+  XGBoost: () => (
+    <svg viewBox="0 0 32 32" width="18" height="18" fill="none">
+      <rect width="32" height="32" rx="3" fill="#fca120" opacity="0.15"/>
+      <text x="16" y="21" textAnchor="middle" fontSize="8" fontWeight="700" fill="#fca120" fontFamily="monospace">XGB</text>
+    </svg>
+  ),
   LangChain: () => (
     <svg viewBox="0 0 32 32" width="18" height="18" fill="none">
       <circle cx="8" cy="16" r="4" stroke="#1c7c54" strokeWidth="1.5" fill="none" opacity="0.8"/>
@@ -133,6 +157,12 @@ const Icons = {
       <circle cx="24" cy="10" r="3" stroke="#1c7c54" strokeWidth="1.5" fill="none" opacity="0.8"/>
       <circle cx="16" cy="24" r="3" stroke="#1c7c54" strokeWidth="1.5" fill="none" opacity="0.8"/>
       <path d="M11 10h10M8 13l5 8M24 13l-5 8" stroke="#1c7c54" strokeWidth="1.5" opacity="0.6"/>
+    </svg>
+  ),
+  MCP: () => (
+    <svg viewBox="0 0 32 32" width="18" height="18" fill="none">
+      <rect width="32" height="32" rx="3" fill="#e5c158" opacity="0.15"/>
+      <text x="16" y="21" textAnchor="middle" fontSize="8" fontWeight="700" fill="#e5c158" fontFamily="monospace">MCP</text>
     </svg>
   ),
   RAG: () => (
@@ -158,10 +188,18 @@ const Icons = {
       <text x="16" y="20" textAnchor="middle" fontSize="10" fontWeight="700" fill="#ff6b35" fontFamily="monospace" opacity="0.8">{'>'}_</text>
     </svg>
   ),
-  XGBoost: () => (
+  Git: () => (
     <svg viewBox="0 0 32 32" width="18" height="18" fill="none">
-      <rect width="32" height="32" rx="3" fill="#fca120" opacity="0.15"/>
-      <text x="16" y="21" textAnchor="middle" fontSize="8" fontWeight="700" fill="#fca120" fontFamily="monospace">XGB</text>
+      <path d="M28 14.7L17.3 4a1.3 1.3 0 00-1.9 0L13 6.4l2.4 2.4a1.6 1.6 0 012 2l2.3 2.3a1.6 1.6 0 11-1 1l-2.1-2.1v5.5a1.6 1.6 0 11-1.3 0V12a1.6 1.6 0 01-.9-2.1L12.2 7.7 4 15.9a1.3 1.3 0 000 1.9L14.7 28a1.3 1.3 0 001.9 0L28 16.6a1.3 1.3 0 000-1.9z" fill="#f05133" opacity="0.7"/>
+    </svg>
+  ),
+  Docker: () => (
+    <svg viewBox="0 0 32 32" width="18" height="18" fill="none">
+      <rect x="4" y="12" width="5" height="4" rx="1" fill="#2496ed" opacity="0.7"/>
+      <rect x="11" y="12" width="5" height="4" rx="1" fill="#2496ed" opacity="0.7"/>
+      <rect x="18" y="12" width="5" height="4" rx="1" fill="#2496ed" opacity="0.7"/>
+      <rect x="11" y="7" width="5" height="4" rx="1" fill="#2496ed" opacity="0.5"/>
+      <path d="M4 20c2 3 8 4 14 2s10-6 10-6" stroke="#2496ed" strokeWidth="1.5" opacity="0.5"/>
     </svg>
   ),
   Streamlit: () => (
@@ -176,10 +214,10 @@ const Icons = {
       <text x="16" y="21" textAnchor="middle" fontSize="7" fontWeight="700" fill="#ff6c37" fontFamily="monospace">PM</text>
     </svg>
   ),
-  FAISS: () => (
+  MLflow: () => (
     <svg viewBox="0 0 32 32" width="18" height="18" fill="none">
-      <rect width="32" height="32" rx="3" fill="#068cd1" opacity="0.15"/>
-      <text x="16" y="21" textAnchor="middle" fontSize="8" fontWeight="700" fill="#068cd1" fontFamily="monospace">F</text>
+      <rect width="32" height="32" rx="3" fill="#0194e2" opacity="0.15"/>
+      <text x="16" y="21" textAnchor="middle" fontSize="7" fontWeight="700" fill="#0194e2" fontFamily="monospace">MLF</text>
     </svg>
   ),
 };
@@ -190,26 +228,56 @@ const skillGroups = [
     catIcon: '{ }',
     skills: [
       { name: 'Python', Icon: Icons.Python },
-      { name: 'C / C++', Icon: Icons.C },
-      { name: 'SQL', Icon: Icons.SQL },
+      { name: 'C', Icon: Icons.C },
+      { name: 'C++', Icon: Icons.Cpp },
       { name: 'JavaScript', Icon: Icons.JavaScript },
+      { name: 'TypeScript', Icon: Icons.TypeScript },
+      { name: 'SQL', Icon: Icons.SQL },
     ],
   },
   {
-    category: 'Libraries & Frameworks',
-    catIcon: '◇',
+    category: 'Frontend',
+    catIcon: '◈',
     skills: [
-      { name: 'Pandas', Icon: Icons.Pandas },
-      { name: 'NumPy', Icon: Icons.NumPy },
-      { name: 'Matplotlib', Icon: Icons.Matplotlib },
-      { name: 'Seaborn', Icon: Icons.Seaborn },
+      { name: 'React.js', Icon: Icons.React },
+      { name: 'Vite', Icon: Icons.Vite },
+      { name: 'Tailwind CSS', Icon: Icons.Tailwind },
+      { name: 'Framer Motion', Icon: Icons.FramerMotion },
+    ],
+  },
+  {
+    category: 'Backend & APIs',
+    catIcon: '⚙',
+    skills: [
+      { name: 'Node.js', Icon: Icons.NodeJS },
+      { name: 'Express.js', Icon: Icons.Express },
       { name: 'FastAPI', Icon: Icons.FastAPI },
       { name: 'REST APIs', Icon: Icons.NodeJS },
     ],
   },
   {
-    category: 'Machine Learning',
+    category: 'Databases & Storage',
+    catIcon: '⬡',
+    skills: [
+      { name: 'MongoDB', Icon: Icons.MongoDB },
+      { name: 'PostgreSQL', Icon: Icons.PostgreSQL },
+      { name: 'FAISS', Icon: Icons.FAISS },
+      { name: 'Weaviate', Icon: Icons.Weaviate },
+    ],
+  },
+  {
+    category: 'Data Science',
     catIcon: '∑',
+    skills: [
+      { name: 'Pandas', Icon: Icons.Pandas },
+      { name: 'NumPy', Icon: Icons.NumPy },
+      { name: 'Matplotlib', Icon: Icons.Matplotlib },
+      { name: 'Seaborn', Icon: Icons.Seaborn },
+    ],
+  },
+  {
+    category: 'Machine Learning',
+    catIcon: '◆',
     skills: [
       { name: 'XGBoost', Icon: Icons.XGBoost },
       { name: 'Feature Engineering', Icon: Icons.Pandas },
@@ -220,26 +288,25 @@ const skillGroups = [
   },
   {
     category: 'AI & Generative AI',
-    catIcon: '◈',
+    catIcon: '◇',
     skills: [
-      { name: 'Corrective RAG', Icon: Icons.RAG },
+      { name: 'RAG', Icon: Icons.RAG },
       { name: 'LangChain', Icon: Icons.LangChain },
       { name: 'LangGraph', Icon: Icons.LangGraph },
+      { name: 'MCP', Icon: Icons.MCP },
       { name: 'Vector Search', Icon: Icons.VectorSearch },
       { name: 'Prompt Engineering', Icon: Icons.PromptEng },
     ],
   },
   {
-    category: 'Backend, DB & Tools',
-    catIcon: '⬡',
+    category: 'DevOps & Tools',
+    catIcon: '⊕',
     skills: [
       { name: 'Git & GitHub', Icon: Icons.Git },
       { name: 'Docker', Icon: Icons.Docker },
       { name: 'Streamlit', Icon: Icons.Streamlit },
-      { name: 'PostgreSQL', Icon: Icons.PostgreSQL },
-      { name: 'MongoDB', Icon: Icons.MongoDB },
-      { name: 'FAISS', Icon: Icons.FAISS },
-      { name: 'Node.js', Icon: Icons.NodeJS },
+      { name: 'Postman', Icon: Icons.Postman },
+      { name: 'MLflow', Icon: Icons.MLflow },
     ],
   },
 ];
@@ -257,19 +324,19 @@ function SkillCard({ group, index }) {
       style={{
         background: 'var(--surface)',
         border: '1px solid var(--border)',
-        padding: '32px',
+        padding: '28px',
         position: 'relative',
         transition: 'border-color 0.3s',
-        flex: '1 1 180px',
+        flex: '1 1 160px',
         minWidth: '0',
       }}
       whileHover={{ borderColor: 'var(--accent)' }}
     >
       <div style={{
         fontFamily: 'var(--font-display)',
-        fontSize: '22px',
+        fontSize: '20px',
         color: 'var(--accent)',
-        marginBottom: '12px',
+        marginBottom: '10px',
         fontStyle: 'italic',
         opacity: 0.8,
       }}>
@@ -278,15 +345,15 @@ function SkillCard({ group, index }) {
 
       <h3 style={{
         fontFamily: 'var(--font-display)',
-        fontSize: '17px', fontWeight: 500,
-        color: 'var(--text)', marginBottom: '24px',
+        fontSize: '15px', fontWeight: 500,
+        color: 'var(--text)', marginBottom: '20px',
         letterSpacing: '-0.01em',
         fontStyle: 'italic',
       }}>
         {group.category}
       </h3>
 
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
         {group.skills.map(({ name, Icon }, i) => (
           <div key={i} style={{
             display: 'flex', alignItems: 'center', gap: '10px'
@@ -294,7 +361,7 @@ function SkillCard({ group, index }) {
             <span style={{ flexShrink: 0, display: 'flex', alignItems: 'center' }}>
               <Icon />
             </span>
-            <span style={{ fontSize: '13px', color: 'var(--text-muted)', fontWeight: 400 }}>
+            <span style={{ fontSize: '12.5px', color: 'var(--text-muted)', fontWeight: 400 }}>
               {name}
             </span>
           </div>
@@ -338,7 +405,7 @@ export default function Skills() {
         <div style={{
           display: 'flex',
           flexWrap: 'wrap',
-          gap: '20px',
+          gap: '16px',
         }}>
           {skillGroups.map((group, i) => (
             <SkillCard key={i} group={group} index={i} />
