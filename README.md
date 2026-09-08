@@ -11,7 +11,7 @@
 ╚═╝     ╚═╝  ╚═╝  ╚═══╝  ╚═╝  ╚═╝╚═╝  ╚═══╝    ╚═╝      ╚═════╝ ╚═╝  ╚═╝   ╚═╝   ╚═╝      ╚═════╝ ╚══════╝╚═╝ ╚═════╝ 
 ```
 
-# ✦ Jarpula Pavan — Portfolio v1.0
+# ✦ Jarpula Pavan — Portfolio v2.0
 
 ### *Software Developer & AI / Data Engineer · IIT Kharagpur*
 
@@ -47,6 +47,7 @@
 - [📁 Project Structure](#-project-structure)
 - [🚀 Getting Started](#-getting-started)
 - [🧩 Sections Breakdown](#-sections-breakdown)
+- [💼 Experience](#-experience)
 - [🎯 Projects Showcased](#-projects-showcased)
 - [🏆 Achievements & Recognition](#-achievements--recognition)
 - [🎓 Education & Certifications](#-education--certifications)
@@ -64,7 +65,7 @@ This isn't just a portfolio — it's a **statement of craft**.
 
 Built ground-up with **React 19**, **Framer Motion**, **GSAP**, and **Three.js**, this portfolio site blurs the line between engineering and design. Every animation is intentional. Every transition is tuned. Every interaction speaks.
 
-The site documents the journey of **Jarpula Pavan** — a Mechanical Engineering (Dual Degree) student at **IIT Kharagpur** who fell in love with software, built AI systems, and is now ready to shape the future, one commit at a time.
+The site documents the journey of **Jarpula Pavan** — a B.Tech (Hons.) + M.Tech Dual Degree student in Mechanical Engineering & Manufacturing Science at **IIT Kharagpur** who built AI systems, full-stack applications, and competitive programming achievements.
 
 <br />
 
@@ -120,7 +121,10 @@ The visual language is inspired by **high-end editorial design** and **brutalist
 A full cursor replacement built in React. The cursor morphs and scales on hover over interactive elements (`a`, `button`, `[data-hover]`), giving the site a distinct, tactile feel.
 
 ### 🎥 Scroll-Driven Project Reel
-The Projects section features a **dual-row horizontal reel** that animates as you scroll vertically. The two rows move in opposite directions using `useScroll` + `useTransform` from Framer Motion, ensuring all 4 projects are visible and explorable at any scroll depth — mathematically precise using `vw`-based offset calculations.
+The Projects section features a **quad-row horizontal reel** that animates as you scroll vertically. The four rows move in alternating directions using `useScroll` + `useTransform` from Framer Motion, ensuring all 8 projects are visible and explorable at any scroll depth — mathematically precise using `vw`-based offset calculations.
+
+### 💼 Experience Section
+A dedicated work history section showcasing internships with detailed bullet points, tech stacks, and role tags — all styled to match the portfolio's dark editorial aesthetic.
 
 ### ✨ Particle & Ambient Animations
 - Floating gold accent particles around the hero portrait (5 staggered loops)
@@ -211,8 +215,9 @@ portfolio/
 │   ├── 📂 sections/         # Full-page section components
 │   │   ├── Hero.jsx         # ★ Animated hero with portrait & CTAs
 │   │   ├── About.jsx        # Bio, stats, social links
-│   │   ├── Skills.jsx       # ★ Skill grid by category
-│   │   ├── Projects.jsx     # ★ Scroll-driven horizontal reel
+│   │   ├── Experience.jsx   # ★ Work history & internships
+│   │   ├── Skills.jsx       # ★ Skill grid by category (CV-matched)
+│   │   ├── Projects.jsx     # ★ Scroll-driven quad-row horizontal reel
 │   │   ├── Achievements.jsx # Competitive programming & certs
 │   │   └── Contact.jsx      # Contact form + social links + footer
 │   │
@@ -245,8 +250,8 @@ npm   >= 9.0.0
 
 **1. Clone the repository**
 ```bash
-git clone https://github.com/pavanjarpula/portfolio.git
-cd portfolio
+git clone https://github.com/pavanjarpula/Portfolio.git
+cd Portfolio
 ```
 
 **2. Install dependencies**
@@ -291,29 +296,68 @@ Two-column layout with:
 - A heading, IIT Kharagpur badge, key stats (3+ yrs, 10+ projects, 5+ tech), and social links on the left
 - A bio paragraph and a 4-cell info grid (Role, Location, Availability, Passion) on the right
 
-### 4. `Skills.jsx` — The Armoury
-Five skill category cards rendered in a responsive flex wrap:
-- **Languages** — C/C++, JavaScript, Python, HTML/CSS, TypeScript
-- **Frontend** — React, Tailwind, Redux, Framer Motion, Next.js
-- **Backend** — Node.js, Express, REST APIs, JWT/OAuth, GraphQL
-- **Database & Tools** — MongoDB, Git, Postman, VS Code, Docker
-- **Data Science** — NumPy, Pandas, Matplotlib, Seaborn, LangChain, RAG
+### 4. `Experience.jsx` — Work History
+A dedicated section showcasing professional internships with:
+- **Summer Intern @ IIT Kharagpur** — Full-stack solar forecasting platform with ML models
+- **AI Intern @ GradGo** — Agentic chatbot with LLM and MCP integration
+
+Each card includes role tags, bullet-point highlights, and tech stack pills.
+
+### 5. `Skills.jsx` — The Armoury
+Five skill category cards rendered in a responsive flex wrap, matched to CV content:
+- **Languages** — Python, C/C++, SQL, JavaScript
+- **Libraries & Frameworks** — Pandas, NumPy, Matplotlib, Seaborn, FastAPI, REST APIs
+- **Machine Learning** — XGBoost, Feature Engineering, EDA, Hyperparameter Tuning, Recommender Systems
+- **AI & Generative AI** — Corrective RAG, LangChain, LangGraph, Vector Search, Prompt Engineering
+- **Backend, DB & Tools** — Git, Docker, Streamlit, PostgreSQL, MongoDB, FAISS, Node.js
 
 Each card has a custom inline SVG icon per technology, crafted from scratch.
 
-### 5. `Projects.jsx` — The Reel ⭐
-The technical crown jewel. A scroll-driven **dual-row carousel** where:
-- Row 1 (`[01, 02, 03, 04]`) slides left as you scroll down
-- Row 2 (`[03, 04, 01, 02]`) slides right (opposite direction)
-- At any scroll position, all 4 projects appear across both rows — guaranteed by precise `vw`-based offset math
+### 6. `Projects.jsx` — The Reel ⭐
+The technical crown jewel. A scroll-driven **quad-row carousel** where:
+- Row 1 (`[01, 02, 03, 04, 05, 06, 07, 08]`) slides left as you scroll down
+- Row 2 (`[03, 04, 05, 06, 07, 08, 01, 02]`) slides right (opposite direction)
+- Row 3 (`[05, 06, 07, 08, 01, 02, 03, 04]`) slides left
+- Row 4 (`[07, 08, 01, 02, 03, 04, 05, 06]`) slides right
+- At any scroll position, all 8 projects appear across four rows — guaranteed by precise `vw`-based offset math
 
 Each card features a coloured gradient top-bar, glow orb, metrics badges, and a GitHub link.
 
-### 6. `Achievements.jsx` — Proof of Work
-Three-column competitive programming cards (LeetCode, Codeforces ×2) + a split layout of Certifications (3 cards) and an Education timeline.
+### 7. `Achievements.jsx` — Proof of Work
+Four competitive programming cards (Codeforces ×3, LeetCode) + a split layout of Certifications (2 cards) and an Education timeline.
 
-### 7. `Contact.jsx` — The Handoff
+### 8. `Contact.jsx` — The Handoff
 A centred contact form (no backend — `mailto:` magic) + 4-column social grid (Email, LinkedIn, GitHub, Phone) + a minimal footer.
+
+<br />
+
+---
+
+## 💼 Experience
+
+### Summer Intern — Sponsored Research & Industrial Consultancy · IIT Kharagpur
+**June '26 – Jul '26** · Full-Stack + ML
+
+- Built and deployed a full-stack React-Node.js-FastAPI application integrating MongoDB and ML services for solar forecasting and analytics
+- Scraped 3 years of hourly solar-generation data and integrated Open-Meteo's 10 hourly weather variables for real-time ML forecasting
+- Engineered 25 weather-temporal features using lag variables, rolling statistics, and seasonal patterns
+- Developed XGBoost quantile models (P10/P50/P90), achieving 16.1% MAPE, 0.71 R² score, and 31.2% improvement over persistence
+- Developed LSTM forecasting model for 16-hour generation profiles, achieving 0.85 R² score and 219 kWh MAE
+- Built a Corrective RAG chatbot with adaptive retrieval and self-reflection with DeepSeek, vector search, Tavily
+
+**Stack:** `React` `Node.js` `FastAPI` `MongoDB` `XGBoost` `LSTM` `RAG` `Docker`
+
+---
+
+### AI Intern — GradGo · Remote
+**June '25 – Jul '25** · AI / LLM
+
+- Developed an agentic chatbot using Qwen2.5 LLM and Model Context Protocol for multi-step workplace and food-management tasks
+- Implemented LLM-driven intent classification, tool selection, and robust multi-step MCP execution
+- Built semantic food search using Nomic embeddings and Weaviate, combining vector similarity with price, protein, and calorie filters
+- Designed a FastAPI backend with Weaviate storage and Streamlit frontend, using Ollama, Docker Compose, and bcrypt authentication
+
+**Stack:** `Qwen2.5` `MCP` `FastAPI` `Weaviate` `Streamlit` `Docker` `Ollama`
 
 <br />
 
@@ -321,43 +365,83 @@ A centred contact form (no backend — `mailto:` magic) + 4-column social grid (
 
 ## 🎯 Projects Showcased
 
-### `01` — Text-to-Learn *(2025)*
-> AI-powered full-stack course generator
+### `01` — UrjaSetu *(2026)*
+> Solar Forecasting & Ice TES Intelligence Platform
 
-An end-to-end learning platform that takes a topic as input and auto-generates a structured course of **3–6 modules** and **15+ lessons** using AI. Features polymorphic lesson rendering (video, quiz, article), OAuth 2.0 authentication, multilingual audio playback, and PDF export.
+Full-stack React-Node.js-FastAPI app for IIT Kharagpur's 5.5 MWp solar campus. Integrates XGBoost quantile models (P10/P50/P90), LSTM hourly profiles, ice TES sizing for 21 halls, and a Corrective RAG chatbot with DeepSeek LLM and vector search.
 
-**Stack:** `Node.js` `React` `MongoDB` `OAuth 2.0` `jsPDF`  
-**Metrics:** 15+ lessons/course · Multilingual audio · OAuth secured
+**Stack:** `React` `Node.js` `FastAPI` `XGBoost` `LSTM` `MongoDB` `RAG`
+**Metrics:** 16.1% MAPE · 0.71 R² Score · 25 Features
 
 ---
 
-### `02` — Rubik's Cube Solver *(2025)*
+### `02` — Text-to-Learn *(2025)*
+> AI-powered full-stack course generator
+
+An end-to-end learning platform that takes a topic as input and auto-generates a structured course of **3–6 modules** and **15+ lessons** using AI. Features polymorphic lesson rendering, OAuth 2.0 authentication, multilingual audio playback, and PDF export.
+
+**Stack:** `Node.js` `React` `MongoDB` `OAuth 2.0` `jsPDF`
+**Metrics:** 15+ lessons/course · OAuth secured · Multilingual
+
+---
+
+### `03` — Personalized Recommendation System *(2026)*
+> Two-Stage Learning-to-Rank Engine
+
+Production-style recommender on MovieLens 1M with ALS candidate generation, LightGBM LambdaMART ranking, 75 engineered features, and FastAPI serving. Improved nDCG@10 from 0.242 to 0.367 (+51.7%).
+
+**Stack:** `Python` `LightGBM` `ALS` `FastAPI` `MLflow` `Docker`
+**Metrics:** nDCG@10: 0.367 · 75 Features · FastAPI Serving
+
+---
+
+### `04` — C++ Concurrent HTTP Server *(2025)*
+> From-scratch multithreaded server
+
+HTTP/1.1 server built in C++17 with raw TCP sockets, fixed-size thread pool, bounded blocking queue, and real-time metrics dashboard. Handles backpressure with HTTP 503 and lock-free atomic counters.
+
+**Stack:** `C++17` `TCP Sockets` `Thread Pool` `Docker` `CMake`
+**Metrics:** 41 Tests Passing · Lock-Free Metrics · Docker Deployed
+
+---
+
+### `05` — Rubik's Cube Solver *(2025)*
 > Algorithmic visualization engine
 
-A virtual 3×3 Rubik's Cube implementing **four solving algorithms** — BFS, DFS, IDDFS, and Korf's IDA*. Solves in under 4 seconds using nibble array memory optimization. The algorithms are visualized step-by-step.
+A virtual 3×3 Rubik's Cube implementing **four solving algorithms** — BFS, DFS, IDDFS, and Korf's IDA*. Solves in under 4 seconds using nibble array memory optimization.
 
-**Stack:** `C++` `STL` `IDA*` `BFS` `OOP`  
+**Stack:** `C++` `STL` `IDA*` `BFS` `OOP`
 **Metrics:** < 4s solve time · Memory optimized · IDA* optimal path
 
 ---
 
-### `03` — Whiteboard App *(2024)*
+### `06` — Whiteboard App *(2024)*
 > Collaborative drawing canvas
 
 A React-based whiteboard using the **HTML5 Canvas API** with 5 drawing tools, a custom colour palette, adjustable brush sizes, and a full undo/redo stack via React Context API. Deployed on Vercel.
 
-**Stack:** `React` `HTML5 Canvas` `Tailwind CSS` `Vercel`  
+**Stack:** `React` `HTML5 Canvas` `Tailwind CSS` `Vercel`
 **Metrics:** 5 drawing tools · Full undo/redo · Live on Vercel
 
 ---
 
-### `04` — Email Scheduler *(2024)*
-> Automated communication engine
+### `07` — Civic Services DBMS *(2024)*
+> Full-stack Panchayat management system
 
-A Python automation system that sends **100+ emails per week** using `smtplib`. Async threading with exponential-backoff retry mechanisms reduced delivery failures by **90%** and doubled throughput.
+Flask-PostgreSQL web app for managing civic services at the Panchayat level. 12 normalized tables, 38 REST endpoints, 4 user roles, 90 JavaScript functions across 22 HTML templates.
 
-**Stack:** `Python` `smtplib` `Threading` `datetime`  
-**Metrics:** 100+ emails/week · 90% fewer failures · 2× performance
+**Stack:** `Flask` `PostgreSQL` `SQLAlchemy` `HTML5` `JavaScript`
+**Metrics:** 38 API Endpoints · 12 DB Tables · 4 User Roles
+
+---
+
+### `08` — Inventory Management Platform *(2025)*
+> AI-powered reordering system
+
+LangGraph agentic workflow with Prophet forecasting, FAISS RAG, and Groq LLM for ranked, context-aware inventory recommendations. Achieves 97% manual fill rate at 48% working capital.
+
+**Stack:** `Python` `LangGraph` `Prophet` `FAISS` `Groq` `Twilio`
+**Metrics:** 97% Fill Rate · 48% Working Capital · LangSmith
 
 <br />
 
@@ -367,9 +451,10 @@ A Python automation system that sends **100+ emails per week** using `smtplib`. 
 
 | Platform | Handle | Achievement |
 |----------|--------|-------------|
-| ![LeetCode](https://img.shields.io/badge/LeetCode-FFA116?style=flat-square&logo=leetcode&logoColor=black) | `pavankgpian` | **1606+ Rating** — Top percentile, consistent hard problem solver |
-| ![Codeforces](https://img.shields.io/badge/Codeforces-1F8ACB?style=flat-square&logo=codeforces&logoColor=white) | `StarFighter007` | **Rank #503 Global** — Codeforces Round 1029 Div.3, 36,218 participants |
-| ![Codeforces](https://img.shields.io/badge/Codeforces-1F8ACB?style=flat-square&logo=codeforces&logoColor=white) | `StarFighter007` | **1490 Specialist Rating** — Certified specialist tier |
+| ![Codeforces](https://img.shields.io/badge/Codeforces-1F8ACB?style=flat-square&logo=codeforces&logoColor=white) | `pavanj123` | **1481 Specialist Rating** — Certified specialist tier |
+| ![Codeforces](https://img.shields.io/badge/Codeforces-1F8ACB?style=flat-square&logo=codeforces&logoColor=white) | `pavanj123` | **Rank #1005 Global** — Educational Round 191 (Div. 2), top 4% of 27,197 |
+| ![Codeforces](https://img.shields.io/badge/Codeforces-1F8ACB?style=flat-square&logo=codeforces&logoColor=white) | `pavanj123` | **Rank #1676 Global** — Round 1033 (Div. 2), top 6% of 28,431 |
+| ![LeetCode](https://img.shields.io/badge/LeetCode-FFA116?style=flat-square&logo=leetcode&logoColor=black) | `pavankgpian` | **1606+ Rating** — Peak contest rating on LeetCode |
 
 <br />
 
@@ -382,8 +467,9 @@ A Python automation system that sends **100+ emails per week** using `smtplib`. 
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
 │  ◉  IIT Kharagpur                     Nov 2022 – May 2027 (Current) │
-│     Dual Degree — Mechanical Engineering                             │
-│     CGPA: 8.23 / 10                                                  │
+│     B.Tech (Hons.) + M.Tech Dual Degree                              │
+│     Mechanical Engineering & Manufacturing Science                   │
+│     CGPA: 7.22 / 10                                                  │
 │                                                                      │
 │  ○  Narayana Junior College           Aug 2020 – May 2022            │
 │     TS BSE Intermediate                                              │
@@ -399,9 +485,8 @@ A Python automation system that sends **100+ emails per week** using `smtplib`. 
 
 | Badge | Title | Issuer | Period |
 |-------|-------|--------|--------|
-| `DSA` | AZ-201: Applied Algorithms & Data Structures | **Algozenith** | Apr 2024 – Apr 2025 |
-| `ML` | Machine Learning Specialization | **Coursera / Andrew Ng** | Dec 2023 – Feb 2024 |
-| `PY` | The Complete Python Developer | **Udemy / Andrei Neagoie** | Feb 2025 |
+| `DSA` | AZ-201: Applied Algorithms & Data Structures | **Algozenith** | Apr 2024 – Jan 2025 |
+| `ML` | Machine Learning by Andrew Ng | **Coursera** | Dec 2023 – Feb 2024 |
 
 <br />
 
@@ -437,7 +522,7 @@ Open `src/sections/Projects.jsx` and add an entry to the `projects` array:
 ```jsx
 const projects = [
   {
-    id: '05',
+    id: '09',
     title: 'Your Project',
     subtitle: 'A short tagline',
     description: 'What it does and why it matters.',
@@ -525,7 +610,7 @@ Built with care by **Jarpula Pavan**
 | 💼 LinkedIn | [linkedin.com/in/jarpula-pavan-512ba5259](https://www.linkedin.com/in/jarpula-pavan-512ba5259/) |
 | 🐙 GitHub | [github.com/pavanjarpula](https://github.com/pavanjarpula) |
 | 📊 LeetCode | [leetcode.com/pavankgpian](https://leetcode.com/pavankgpian) |
-| ⚔️ Codeforces | [StarFighter007](https://codeforces.com/profile/StarFighter007) |
+| ⚔️ Codeforces | [pavanj123](https://codeforces.com/profile/pavanj123) |
 
 <br />
 
