@@ -238,6 +238,36 @@ const Icons = {
       <text x="16" y="21" textAnchor="middle" fontSize="7" fontWeight="700" fill="#0194e2" fontFamily="monospace">MLF</text>
     </svg>
   ),
+  CLion: () => (
+    <svg viewBox="0 0 32 32" width="18" height="18" fill="none">
+      <rect width="32" height="32" rx="3" fill="#fc801d" opacity="0.15"/>
+      <text x="16" y="21" textAnchor="middle" fontSize="7" fontWeight="700" fill="#fc801d" fontFamily="monospace">CL</text>
+    </svg>
+  ),
+  Jupyter: () => (
+    <svg viewBox="0 0 32 32" width="18" height="18" fill="none">
+      <rect width="32" height="32" rx="3" fill="#f37626" opacity="0.15"/>
+      <text x="16" y="21" textAnchor="middle" fontSize="7" fontWeight="700" fill="#f37626" fontFamily="monospace">JN</text>
+    </svg>
+  ),
+  Angular: () => (
+    <svg viewBox="0 0 32 32" width="18" height="18" fill="none">
+      <rect width="32" height="32" rx="3" fill="#dd0031" opacity="0.15"/>
+      <text x="16" y="21" textAnchor="middle" fontSize="7" fontWeight="700" fill="#dd0031" fontFamily="monospace">Ag</text>
+    </svg>
+  ),
+  Vanilla: () => (
+    <svg viewBox="0 0 32 32" width="18" height="18" fill="none">
+      <rect width="32" height="32" rx="3" fill="#f7df1e" opacity="0.12"/>
+      <text x="16" y="21" textAnchor="middle" fontSize="8" fontWeight="700" fill="#f7df1e" fontFamily="monospace">V</text>
+    </svg>
+  ),
+  HTML5: () => (
+    <svg viewBox="0 0 32 32" width="18" height="18" fill="none">
+      <rect width="32" height="32" rx="3" fill="#e34f26" opacity="0.15"/>
+      <text x="16" y="21" textAnchor="middle" fontSize="8" fontWeight="700" fill="#e34f26" fontFamily="monospace">H5</text>
+    </svg>
+  ),
 };
 
 const skillGroups = [
@@ -258,9 +288,12 @@ const skillGroups = [
     catIcon: '◈',
     skills: [
       { name: 'React.js', Icon: Icons.React },
+      { name: 'Angular', Icon: Icons.Angular },
       { name: 'Vite', Icon: Icons.Vite },
       { name: 'Tailwind CSS', Icon: Icons.Tailwind },
+      { name: 'HTML5', Icon: Icons.HTML5 },
       { name: 'Framer Motion', Icon: Icons.FramerMotion },
+      { name: 'Vanilla CSS/JS', Icon: Icons.Vanilla },
     ],
   },
   {
@@ -316,6 +349,8 @@ const skillGroups = [
       { name: 'Streamlit', Icon: Icons.Streamlit },
       { name: 'Postman', Icon: Icons.Postman },
       { name: 'MLflow', Icon: Icons.MLflow },
+      { name: 'CLion', Icon: Icons.CLion },
+      { name: 'Jupyter Notebook', Icon: Icons.Jupyter },
     ],
   },
 ];

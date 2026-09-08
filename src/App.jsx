@@ -8,6 +8,7 @@ import About from './sections/About';
 import Experience from './sections/Experience';
 import Skills from './sections/Skills';
 import Projects from './sections/Projects';
+import Blog from './sections/Blog';
 import Achievements from './sections/Achievements';
 import Contact from './sections/Contact';
 
@@ -37,6 +38,7 @@ export default function App() {
         <Experience />
         <Skills />
         <Projects />
+        <Blog />
         <Achievements />
         <Contact />
       </main>
